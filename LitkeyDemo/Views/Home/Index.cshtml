@@ -1,24 +1,29 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+ 
+<style>
+    .card-body i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 4rem;
+    left: 14rem;
+    color: rgba(255,255,255,.2);
+    transition: .15s all ease;
+}
+    .bg-green {
+    background:#28a745;
+    }
+    .bg-yellow {
+    background:#ffc107;
+    }
+ 
+</style>
   <!-- ============================================================== -->
 <!-- Bread crumb and right sidebar toggle -->
 <!-- ============================================================== -->
-<div class="page-breadcrumb">
-    <div class="row">
-        <div class="col-12 d-flex no-block align-items-center">
-            <h4 class="page-title">Dashboard-2</h4>
-            <div class="ml-auto text-right">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Library</li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-    </div>
-</div>
+
 <!-- ============================================================== -->
 <!-- End Bread crumb and right sidebar toggle -->
 <!-- ============================================================== -->
@@ -29,13 +34,46 @@
     <!-- ============================================================== -->
     <!-- Start Page Content -->
     <!-- ============================================================== -->
-    <div class="row">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-8 mb-5 mb-lg-0 mx-auto">
+                <a href="@Url.Action("Search")" class="after-loop-item text-white bg-cyan card border-0 card-snippets shadow-lg">
+                    <div class="card-body d-flex align-items-start flex-column text-left">
+                        <h4>Search</h4>
+                        <p class="w-75">you cann Search in 922 text and get some reports !</p>
+                        <i class="fa fa-search"  style="font-size: xx-large;"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-8 mb-5 mb-lg-0 mx-auto">
+                <a href="/snippets/" class="after-loop-item card border-0 text-white bg-success card-snippets shadow-lg">
+                    <div class="card-body d-flex align-items-start flex-column text-left">
+                        <h4>Snippets</h4>
+                        <p class="w-75">Code snippets ready to copy and paste!</p>
+                        <i class="fa fa-code"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-8 mb-5 mb-lg-0 mx-auto">
+                <a href="/snippets/" class="after-loop-item card border-0 text-white bg-warning card-snippets shadow-lg">
+                    <div class="card-body d-flex align-items-start flex-column text-left">
+                        <h4>Snippets</h4>
+                        <p class="w-75">Code snippets ready to copy and paste!</p>
+                        <i class="fa fa-code"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    @*<div class="row">
         <!-- Column -->
         <div class="col-md-6 col-lg-3">
             <div class="card card-hover">
                 <div class="box bg-cyan text-center">
                     <h1 class="font-light text-white"><i class="mdi mdi-view-dashboard"></i></h1>
-                    <h6 class="text-white">Dashboard</h6>
+                    <h6 class="text-white">
+                        <a class="text-white" href="@Url.Action("Search")">Search</a>
+                    </h6>
                 </div>
             </div>
         </div>
@@ -44,7 +82,7 @@
             <div class="card card-hover">
                 <div class="box bg-success text-center">
                     <h1 class="font-light text-white"><i class="mdi mdi-chart-areaspline"></i></h1>
-                    <h6 class="text-white">Charts</h6>
+                    <h6 class="text-white">Students</h6>
                 </div>
             </div>
         </div>
@@ -53,7 +91,7 @@
             <div class="card card-hover">
                 <div class="box bg-warning text-center">
                     <h1 class="font-light text-white"><i class="mdi mdi-collage"></i></h1>
-                    <h6 class="text-white">Widgets</h6>
+                    <h6 class="text-white">Documentaion</h6>
                 </div>
             </div>
         </div>
@@ -62,11 +100,11 @@
             <div class="card card-hover">
                 <div class="box bg-danger text-center">
                     <h1 class="font-light text-white"><i class="mdi mdi-border-outside"></i></h1>
-                    <h6 class="text-white">Tables</h6>
+                    <h6 class="text-white">Profile</h6>
                 </div>
             </div>
         </div>
-    </div>
+    </div>*@
     <div class="row">
         <div class="col-md-6">
             <div class="card">
@@ -122,66 +160,7 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">To Do List</h4>
-                    <div class="todo-widget scrollable" style="height:450px;">
-                        <ul class="list-task todo-list list-group m-b-0" data-role="tasklist">
-                            <li class="list-group-item todo-item" data-role="task">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck">
-                                    <label class="custom-control-label todo-label" for="customCheck">
-                                        <span class="todo-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span> <span class="badge badge-pill badge-danger float-right">Today</span>
-                                    </label>
-                                </div>
-                                <ul class="list-style-none assignedto">
-                                    <li class="assignee"><img class="rounded-circle" width="40" src="../../assets/images/users/1.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Steave"></li>
-                                    <li class="assignee"><img class="rounded-circle" width="40" src="../../assets/images/users/2.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Jessica"></li>
-                                    <li class="assignee"><img class="rounded-circle" width="40" src="../../assets/images/users/3.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Priyanka"></li>
-                                    <li class="assignee"><img class="rounded-circle" width="40" src="../../assets/images/users/4.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Selina"></li>
-                                </ul>
-                            </li>
-                            <li class="list-group-item todo-item" data-role="task">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                    <label class="custom-control-label todo-label" for="customCheck1">
-                                        <span class="todo-desc">Lorem Ipsum is simply dummy text of the printing</span><span class="badge badge-pill badge-primary float-right">1 week </span>
-                                    </label>
-                                </div>
-                                <div class="item-date"> 26 jun 2017</div>
-                            </li>
-                            <li class="list-group-item todo-item" data-role="task">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck2">
-                                    <label class="custom-control-label todo-label" for="customCheck2">
-                                        <span class="todo-desc">Give Purchase report to</span> <span class="badge badge-pill badge-info float-right">Yesterday</span>
-                                    </label>
-                                </div>
-                                <ul class="list-style-none assignedto">
-                                    <li class="assignee"><img class="rounded-circle" width="40" src="../../assets/images/users/3.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Priyanka"></li>
-                                    <li class="assignee"><img class="rounded-circle" width="40" src="../../assets/images/users/4.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Selina"></li>
-                                </ul>
-                            </li>
-                            <li class="list-group-item todo-item" data-role="task">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck3">
-                                    <label class="custom-control-label todo-label" for="customCheck3">
-                                        <span class="todo-desc">Lorem Ipsum is simply dummy text of the printing </span> <span class="badge badge-pill badge-warning float-right">2 weeks</span>
-                                    </label>
-                                </div>
-                                <div class="item-date"> 26 jun 2017</div>
-                            </li>
-                            <li class="list-group-item todo-item" data-role="task">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck4">
-                                    <label class="custom-control-label todo-label" for="customCheck4">
-                                        <span class="todo-desc">Give Purchase report to</span> <span class="badge badge-pill badge-info float-right">Yesterday</span>
-                                    </label>
-                                </div>
-                                <ul class="list-style-none assignedto">
-                                    <li class="assignee"><img class="rounded-circle" width="40" src="../../assets/images/users/3.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Priyanka"></li>
-                                    <li class="assignee"><img class="rounded-circle" width="40" src="../../assets/images/users/4.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Selina"></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -311,47 +290,7 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <h5 class="card-title">Calender</h5>
-            <div class="card">
-                <div class="">
-                    <div class="row">
-                        <div class="col-lg-3 border-right p-r-0">
-                            <div class="card-body border-bottom">
-                                <h4 class="card-title m-t-10">Drag & Drop Event</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div id="calendar-events" class="">
-                                            <div class="calendar-events m-b-20" data-class="bg-info"><i class="fa fa-circle text-info m-r-10"></i>Event One</div>
-                                            <div class="calendar-events m-b-20" data-class="bg-success"><i class="fa fa-circle text-success m-r-10"></i> Event Two</div>
-                                            <div class="calendar-events m-b-20" data-class="bg-danger"><i class="fa fa-circle text-danger m-r-10"></i>Event Three</div>
-                                            <div class="calendar-events m-b-20" data-class="bg-warning"><i class="fa fa-circle text-warning m-r-10"></i>Event Four</div>
-                                        </div>
-                                        <!-- checkbox -->
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="drop-remove">
-                                            <label class="custom-control-label" for="drop-remove">Remove after drop</label>
-                                        </div>
-                                        <a href="javascript:void(0)" data-toggle="modal" data-target="#add-new-event" class="btn m-t-20 btn-info btn-block waves-effect waves-light">
-                                            <i class="ti-plus"></i> Add New Event
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-9">
-                            <div class="card-body b-l calender-sidebar">
-                                <div id="calendar"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
     <!-- BEGIN MODAL -->
     <div class="modal none-border" id="my-event">
         <div class="modal-dialog">
