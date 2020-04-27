@@ -15,6 +15,10 @@
         padding: 10px;
         margin-bottom: 10px;
     }
+    label {
+        font-size: 10pt;
+    white-space: nowrap;
+    }
 
     span {
         cursor: pointer;
@@ -39,200 +43,209 @@
     .form-control, .input, .btn {
         border-radius: 0;
     }
-</style>
+    hr {
+    border: solid 0.1px;
+}
  
-<h2>Search</h2>
-<hr />
-<h4>Base Search</h4>
-<a  data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="true" aria-controls="multiCollapseExample1"><span class="fa fa-angle-double-down " data-toggle="collapse" style="font-size: 20px;" aria-hidden="true"></span></a>
+</style>
+ <div class="row" style="padding:100px">
+    <h2>Search</h2>
+    <hr />
+    <h6>Base Search</h6>
 
-<div class="row collapse multi-collapse" id="multiCollapseExample1">
-    <div class="col-md-3">
-        <div class="form-group row">
-            <label for="lname" class="col-sm-3 text-right control-label col-form-label">Base</label>
-            <div class="col-sm-9">
-                <select class="custom-select" id="basetype">
-                    <option value="1" selected>Token</option>
-                    <option value="2">Type</option>
-                </select>
+    <a data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="true" aria-controls="multiCollapseExample1">
+        <span class="fa fa-angle-double-down " style="font-size: 20px;"></span>
+    </a>
+
+    <div class="row   multi-collapse in" id="multiCollapseExample1" aria-expanded="true">
+        <div class="col-md-3">
+            <div class="form-group row">
+                <label for="lname" class="col-sm-3 text-right control-label col-form-label">Base</label>
+                <div class="col-sm-9">
+                    <select class="custom-select" id="basetype">
+                        <option value="1" selected>Token</option>
+                        <option value="2">Type</option>
+                    </select>
+                </div>
             </div>
+
+
+        </div>
+        <div class="col-md-9">
+
         </div>
 
-
-    </div>
-    <div class="col-md-9">
-
     </div>
 
-</div>
-<div class="row">
-    <div class="col-md-3">
-        <div class="form-group row">
-            <label for="fname" class="col-sm-6 text-right control-label col-form-label">Token Range</label>
-            <div class="col-sm-6">
-                <div class="form-group row">
-                    <div class="col-sm-6">
-                        <input class="form-control" type="number" value="" id="example-number-input">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group row">
+                <label for="fname" class="col-sm-6 text-right control-label col-form-label">Token Range</label>
+                <div class="col-sm-6">
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <input class="form-control" type="number" value="" id="example-number-input">
 
-                    </div>
-                    <div class="col-sm-6">
-                        <input class="form-control" type="number" value="" id="example-number-input">
+                        </div>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="number" value="" id="example-number-input">
 
+                        </div>
                     </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <div class="form-group row">
+                <label for="fname" class="col-sm-3 text-right control-label col-form-label">Orig</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="fname" placeholder="Orig Here">
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-3">
+
+            <div class="form-group row">
+                <label for="lname" class="col-sm-3 text-right control-label col-form-label">Target</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="lname" placeholder="Target Here">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+
+            <div class="form-group row">
+                <label for="lname" class="col-sm-3 text-right control-label col-form-label">Pos</label>
+                <div class="col-sm-9">
+                    <select class="custom-select">
+                        <option selected>Choose</option>
+                        <option value="1">NN</option>
+                        <option value="2">PRF</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="row " id="pnltokenshow">
+
+            pnltokenshow
+
+        </div>
+        <div class="row bg-cyan" id="pnltypeshow" style="display: none;">
+            pnltypeshow
+
+        </div>
+    </div>
+    <hr />
+    <h6>Error Properties</h6>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group row">
+                <label for="lname" class="col-sm-3 text-right control-label col-form-label">Error Category</label>
+                <div class="col-sm-9">
+                    <select class="custom-select">
+                        <option selected>Choos</option>
+                        <option value="1">Low_Up</option>
+                        <option value="2">up_low_intern</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <div class="form-group row">
+                <label for="fname" class="col-sm-3 text-right control-label col-form-label">Error Kof</label>
+                <div class="col-sm-9">
+                    <select class="custom-select">
+                        <option selected>Choos</option>
+                        <option value="1">double_Syl</option>
+                        <option value="2">single_Syl</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-4">
+
+            <div class="form-group row">
+                <label for="lname" class="col-sm-3 text-right control-label col-form-label">Error Level</label>
+                <div class="col-sm-9">
+                    <select class="custom-select">
+                        <option selected>Choos</option>
+                        <option value="1">Mo</option>
+                        <option value="2">SN</option>
+                    </select>
                 </div>
             </div>
         </div>
 
+
     </div>
-    <div class="col-md-3">
-        <div class="form-group row">
-            <label for="fname" class="col-sm-3 text-right control-label col-form-label">Orig</label>
-            <div class="col-sm-9">
-                <input type="text" class="form-control" id="fname" placeholder="Orig Here">
+
+    <hr />
+    <h6>Student Properties</h6>
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="form-group row">
+                <label for="fname" class="col-sm-6 text-right control-label col-form-label">M. Language</label>
+                <div class="col-sm-6">
+                    <select class="custom-select">
+                        <option selected>Choos</option>
+                        <option value="1">German</option>
+                        <option value="2">Turkish</option>
+                        <option value="2">Arabic</option>
+                        <option value="2">Persian</option>
+                        <option value="2">Russian</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group row">
+                <label for="fname" class="col-sm-3 text-right control-label col-form-label">Grade</label>
+                <div class="col-sm-9">
+                    <select class="custom-select">
+                        <option selected>Choos</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="2">3</option>
+                        <option value="2">4</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+
+            <div class="form-group row">
+                <label for="lname" class="col-sm-3 text-right control-label col-form-label">Sex</label>
+                <div class="col-sm-9">
+                    <select class="custom-select">
+                        <option selected>Choos</option>
+                        <option value="1">Famle</option>
+                        <option value="2">Male</option>
+                    </select>
+                </div>
             </div>
         </div>
 
-    </div>
-    <div class="col-md-3">
-
-        <div class="form-group row">
-            <label for="lname" class="col-sm-3 text-right control-label col-form-label">Target</label>
+        <div class="form-group col-sm-3">
             <div class="col-sm-9">
-                <input type="text" class="form-control" id="lname" placeholder="Target Here">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Born In Germany</label>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-md-3">
 
-        <div class="form-group row">
-            <label for="lname" class="col-sm-3 text-right control-label col-form-label">Pos</label>
-            <div class="col-sm-9">
-                <select class="custom-select">
-                    <option selected>Choose</option>
-                    <option value="1">NN</option>
-                    <option value="2">PRF</option>
-                </select>
-            </div>
-        </div>
-    </div>
+    <hr />
+    <button type="button" id="btnsearch" class="btn btn-primary btn-lg">Search</button>
 </div>
-<div class="row">
-    <div class="row " id="pnltokenshow">
-
-        pnltokenshow
-
-    </div>
-    <div class="row bg-cyan" id="pnltypeshow" style="display: none;">
-        pnltypeshow
-
-    </div>
-</div>
-<hr />
-<h4>Error Properties</h4>
-
-<div class="row">
-    <div class="col-md-4">
-        <div class="form-group row">
-            <label for="lname" class="col-sm-3 text-right control-label col-form-label">Error Category</label>
-            <div class="col-sm-9">
-                <select class="custom-select">
-                    <option selected>Choos</option>
-                    <option value="1">Low_Up</option>
-                    <option value="2">up_low_intern</option>
-                </select>
-            </div>
-        </div>
-
-    </div>
-    <div class="col-md-4">
-        <div class="form-group row">
-            <label for="fname" class="col-sm-3 text-right control-label col-form-label">Error Kof</label>
-            <div class="col-sm-9">
-                <select class="custom-select">
-                    <option selected>Choos</option>
-                    <option value="1">double_Syl</option>
-                    <option value="2">single_Syl</option>
-                </select>
-            </div>
-        </div>
-
-    </div>
-    <div class="col-md-4">
-
-        <div class="form-group row">
-            <label for="lname" class="col-sm-3 text-right control-label col-form-label">Error Level</label>
-            <div class="col-sm-9">
-                <select class="custom-select">
-                    <option selected>Choos</option>
-                    <option value="1">Mo</option>
-                    <option value="2">SN</option>
-                </select>
-            </div>
-        </div>
-    </div>
-
-
-</div>
-
-<hr />
-<h4>Student Properties</h4>
-<div class="row">
-
-    <div class="col-md-3">
-        <div class="form-group row">
-            <label for="fname" class="col-sm-6 text-right control-label col-form-label">M. Language</label>
-            <div class="col-sm-6">
-                <select class="custom-select">
-                    <option selected>Choos</option>
-                    <option value="1">German</option>
-                    <option value="2">Turkish</option>
-                    <option value="2">Arabic</option>
-                    <option value="2">Persian</option>
-                    <option value="2">Russian</option>
-                </select>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="form-group row">
-            <label for="fname" class="col-sm-3 text-right control-label col-form-label">Grade</label>
-            <div class="col-sm-9">
-                <select class="custom-select">
-                    <option selected>Choos</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="2">3</option>
-                    <option value="2">4</option>
-                </select>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-
-        <div class="form-group row">
-            <label for="lname" class="col-sm-3 text-right control-label col-form-label">Sex</label>
-            <div class="col-sm-9">
-                <select class="custom-select">
-                    <option selected>Choos</option>
-                    <option value="1">Famle</option>
-                    <option value="2">Male</option>
-                </select>
-            </div>
-        </div>
-    </div>
-
-    <div class="form-group col-sm-3">
-        <div class="col-sm-9">
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Born In Germany</label>
-            </div>
-        </div>
-    </div>
-</div>
-
-<hr />
-<button type="button" id="btnsearch" class="btn btn-primary btn-lg">Search</button>
 <hr />
 <div class="container-search  hide">
     <div class="row">
