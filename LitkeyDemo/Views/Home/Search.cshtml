@@ -1,0 +1,557 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Style {
+    <link rel="stylesheet" type="text/css" href="~/assets/extra-libs/multicheck/multicheck.css">
+    <link href="~/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+    <link href="~/Content/Chart.min.css" rel="stylesheet" />
+}
+
+<style>
+    h4 {
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    span {
+        cursor: pointer;
+    }
+
+    .tblresult td {
+        position: relative;
+    }
+
+    .tbldetails {
+        position: absolute;
+        top: 50;
+        left: 0;
+    }
+
+    .expand::after {
+        content: "";
+        display: block;
+        height: 110px;
+    }
+</style>
+
+<h2>Search</h2>
+<hr />
+<h4>Base Search</h4>
+<div class="row">
+    <div class="col-md-3">
+        <div class="form-group row">
+            <label for="lname" class="col-sm-3 text-right control-label col-form-label">Base</label>
+            <div class="col-sm-9">
+                <select class="custom-select" id="basetype">
+                    <option value="1" selected>Token</option>
+                    <option value="2">Type</option>
+                </select>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="col-md-9" >
+ 
+        </div>
+        
+    </div>
+<div class="row">
+    <div class="col-md-3">
+        <div class="form-group row">
+            <label for="fname" class="col-sm-6 text-right control-label col-form-label">Token Range</label>
+            <div class="col-sm-6">
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <input class="form-control" type="number" value="" id="example-number-input">
+
+                    </div>
+                    <div class="col-sm-6">
+                        <input class="form-control" type="number" value="" id="example-number-input">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-3">
+        <div class="form-group row">
+            <label for="fname" class="col-sm-3 text-right control-label col-form-label">Orig</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="fname" placeholder="Orig Here">
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-3">
+
+        <div class="form-group row">
+            <label for="lname" class="col-sm-3 text-right control-label col-form-label">Target</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="lname" placeholder="Target Here">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+
+        <div class="form-group row">
+            <label for="lname" class="col-sm-3 text-right control-label col-form-label">Pos</label>
+            <div class="col-sm-9">
+                <select class="custom-select">
+                    <option selected>Choose</option>
+                    <option value="1">NN</option>
+                    <option value="2">PRF</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="row " id="pnltokenshow">
+         
+        pnltokenshow
+
+    </div>
+    <div class="row bg-cyan" id="pnltypeshow" style="display: none;">
+        pnltypeshow
+
+    </div>
+</div>
+<hr />
+<h4>Error Properties</h4>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group row">
+            <label for="lname" class="col-sm-3 text-right control-label col-form-label">Error Category</label>
+            <div class="col-sm-9">
+                <select class="custom-select">
+                    <option selected>Choos</option>
+                    <option value="1">Low_Up</option>
+                    <option value="2">up_low_intern</option>
+                </select>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-4">
+        <div class="form-group row">
+            <label for="fname" class="col-sm-3 text-right control-label col-form-label">Error Kof</label>
+            <div class="col-sm-9">
+                <select class="custom-select">
+                    <option selected>Choos</option>
+                    <option value="1">double_Syl</option>
+                    <option value="2">single_Syl</option>
+                </select>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-4">
+
+        <div class="form-group row">
+            <label for="lname" class="col-sm-3 text-right control-label col-form-label">Error Level</label>
+            <div class="col-sm-9">
+                <select class="custom-select">
+                    <option selected>Choos</option>
+                    <option value="1">Mo</option>
+                    <option value="2">SN</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<hr />
+<h4>Student Properties</h4>
+<div class="row">
+
+    <div class="col-md-3">
+        <div class="form-group row">
+            <label for="fname" class="col-sm-6 text-right control-label col-form-label">M. Language</label>
+            <div class="col-sm-6">
+                <select class="custom-select">
+                    <option selected>Choos</option>
+                    <option value="1">German</option>
+                    <option value="2">Turkish</option>
+                    <option value="2">Arabic</option>
+                    <option value="2">Persian</option>
+                    <option value="2">Russian</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group row">
+            <label for="fname" class="col-sm-3 text-right control-label col-form-label">Grade</label>
+            <div class="col-sm-9">
+                <select class="custom-select">
+                    <option selected>Choos</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="2">3</option>
+                    <option value="2">4</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+
+        <div class="form-group row">
+            <label for="lname" class="col-sm-3 text-right control-label col-form-label">Sex</label>
+            <div class="col-sm-9">
+                <select class="custom-select">
+                    <option selected>Choos</option>
+                    <option value="1">Famle</option>
+                    <option value="2">Male</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group col-sm-3">
+        <div class="col-sm-9">
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Born In Germany</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr />
+<button type="button" id="btnsearch" class="btn btn-primary btn-lg">Search</button>
+<hr />
+<div class="container  hide">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title m-b-0">Word Structure Table</h5>
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Pos</th>
+                                <th>Lemma</th>
+                                <th>Frequency</th>
+                                <th>#</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Schule</td>
+                                <td>nn</td>
+                                <td>Schule</td>
+                                <td>61</td>
+                                <td><button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal">Info</button></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title m-b-0">Word Structure Table</h5>
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Syllables</th>
+                                <th>Lemma length</th>
+                                <th>Lemma frequency</th>
+                                <th>Type frequency</th>
+                                <th>#</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2</td>
+                                <td>11</td>
+                                <td>61</td>
+                                <td>128</td>
+                                <td><button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal">Info</button></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">More Details</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>
+                                        absolute normalized 22
+                                    </p>
+                                    <hr />
+                                    <p>
+                                        absolute log10 11
+                                    </p>
+                                    <hr />
+
+                                    <p>
+                                        normalized log10 1211
+                                    </p>
+                                    <hr />
+
+                                    <p>
+                                        Rank 21
+                                    </p>
+                                    <hr />
+                                    <p>
+                                        Rank 123
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Details </h5>
+                    <div class="table-responsive">
+
+                        <table id="zero_config" class="table tblresult table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th style="width:20px!important">#</th>
+                                    <th>Text</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr id="row1">
+                                    <td class="doexpand">
+                                        <span class="fa fa-angle-down " style="font-size: 20px;" aria-hidden="true"></span>
+                                    </td>
+                                    <td class="row1">die <span style="color:red">Schule</span> ist aus</td>
+
+                                </tr>
+                                <tr id="row2">
+                                    <td class="doexpand"><span class="fa fa-angle-down" style="font-size: 20px;" aria-hidden="true"></span></td>
+                                    <td>Mein Weg zur <span style="color:red">Schule</span> Schule ist nicht schwer </td>
+                                </tr>
+                                <tr id="row3">
+                                    <td style=""><span class="fa fa-angle-down" style="font-size: 20px;" aria-hidden="true"></span></td>
+                                    <td>die <span style="color:red">Schule</span> ist aus</td>
+                                </tr>
+                                <tr id="row4">
+                                    <td style=""><span class="fa fa-angle-down" style="font-size: 20px;" aria-hidden="true"></span></td>
+                                    <td>die <span style="color:red">Schule</span> ist aus</td>
+                                </tr>
+                                <tr id="row5">
+                                    <td style=""><span class="fa fa-angle-down" style="font-size: 20px;" aria-hidden="true"></span></td>
+                                    <td>die <span style="color:red">Schule</span> ist aus</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <canvas id="myChart" width="200" height="200"></canvas>
+        </div>
+        <div class="col-md-6">
+            <canvas id="myChart1" width="200" height="200"></canvas>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <canvas id="line-chart" width="400" height="400"></canvas>
+        </div>
+        <div class="col-md-6">
+            <canvas id="bar-chart-horizontal" width="800" height="450"></canvas>
+
+        </div>
+    </div>
+    <table class="table tbldetails hide">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Pos</th>
+                <th>Lemma</th>
+                <th>Frequency</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Schule</td>
+                <td>nn</td>
+                <td>Schule</td>
+                <td>61</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+@section script{
+    <script src="../../assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
+    <script src="../../assets/extra-libs/multicheck/jquery.multicheck.js"></script>
+    <script src="~/assets/extra-libs/DataTables/datatables.min.js"></script>
+    <script>
+        /****************************************
+         *       Basic Table                   *
+         ****************************************/
+        $('#zero_config').DataTable();
+    </script>
+    <script src="~/scripts/chart.js"></script>
+
+    <script>
+        $('#btnsearch').on('click', function myfunction() {
+            $('.container').toggleClass('hide');
+            var ctx1 = document.getElementById('myChart1');
+            var myChart1 = new Chart(ctx1, {
+                type: 'bar',
+                data: {
+                    labels: ['German', 'Other Country'],
+                    datasets: [{
+                        label: '# of Nationality',
+                        data: [42, 119],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)'
+
+                        ],
+
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+            var ctx = document.getElementById('myChart');
+            var myChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['German', 'Arabic', 'Turkish', 'Persian', 'Russian'],
+                    datasets: [{
+                        label: '# of Nationality',
+                        data: [12, 9, 3, 8, 2],
+                        backgroundColor: [
+                            'rgba(255, 99, 132 )',
+                            'rgba(54, 162, 235 )',
+                            'rgba(255, 206, 86 )',
+                            'rgba(75, 192, 192 )',
+                             'rgba(126, 255, 60 )',
+                            'rgba(153, 102, 25 )'
+
+                        ],
+
+                    }]
+                }
+
+            });
+            var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+
+            new Chart(document.getElementById("line-chart"), {
+                type: 'line',
+                data: {
+                    labels: MONTHS,
+                    datasets: [{
+                        data: [86, 91, 106, 106, 107, 91, 85, 85, 52, 124],
+                        label: "Freq1",
+                        borderColor: "#3e95cd",
+                        fill: false
+                    }, {
+                        data: [107, 104, 103, 89, 95, 78, 89, 56, 41, 46],
+                        label: "Freq2",
+                        borderColor: "#ff6384",
+                        fill: false
+                    }
+                    ]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: 'Progress of Frequency of this word in all text'
+                    }
+                }
+            });
+            new Chart(document.getElementById("bar-chart-horizontal"), {
+                type: 'horizontalBar',
+                data: {
+                    labels: ["Grade 1 ", "Grade 2", "Grade 3", "Grade 4"],
+                    datasets: [
+                      {
+                          label: "Population (millions)",
+                          backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+                          data: [2478, 5267, 734, 1784]
+                      }
+                    ]
+                },
+                options: {
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Chart base on grade of students'
+                    }
+                }
+            });
+        });
+       
+        $(".doexpand").on('click', function myfunction() {
+            var $this = $(this).closest('td').next();
+            var $table = $('.tbldetails').clone();
+            if (!$this.hasClass('expand')) {
+
+                $this.append($table);
+            } else {
+                var $tbl = $this.find('.tbldetails');
+                $tbl.toggleClass('hide');
+                $tbl.remove();
+            }
+            $this.toggleClass('expand');
+
+            $table.toggleClass('hide');
+            
+            //$('.expand::after').toggle();
+        })
+
+        $("#basetype").on('change', function () {
+            if (this.value==1) {
+                $("#pnltypeshow").hide();
+                $("#pnltokenshow").show();
+            } else {
+                $("#pnltokenshow").hide();
+                $("#pnltypeshow").show();
+            }
+        });
+        $(document).ready(function myfunction() {
+           
+        });
+    </script>
+
+}
