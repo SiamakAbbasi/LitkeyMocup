@@ -894,6 +894,7 @@
     <Content Include="Content\Chart.min.css" />
     <Content Include="css\animate.css" />
     <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\btn.css" />
     <Content Include="css\nivo-lightbox-theme\default\close%402x.png" />
     <Content Include="css\nivo-lightbox-theme\default\close.png" />
     <Content Include="css\nivo-lightbox-theme\default\default.css" />
@@ -1366,7 +1367,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
@@ -1379,8 +1379,6 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\Shared\_Layout2.cshtml" />
-    <Content Include="Views\Home\Search2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

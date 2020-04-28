@@ -7,12 +7,19 @@
     <link rel="stylesheet" type="text/css" href="~/assets/extra-libs/multicheck/multicheck.css">
     <link href="~/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
     <link href="~/Content/Chart.min.css" rel="stylesheet" />
-} 
+    @*<link href="~/css/btn.css" rel="stylesheet" />*@
+
+}
 
 <style>
     h4 {
         padding: 10px;
         margin-bottom: 10px;
+    }
+
+    label {
+        font-size: 10pt;
+        white-space: nowrap;
     }
 
     span {
@@ -34,363 +41,647 @@
         display: block;
         height: 110px;
     }
+
+    .form-control, .input, .btn {
+        border-radius: 0;
+    }
+
+    .custom-select {
+        width: 100%;
+    }
+
+    hr {
+        border: solid 0.1px;
+    }
+
+    .search-section hr {
+        color: #cec9c9;
+    }
+
+    .card.mb-3 {
+        padding: 10px;
+        background: white;
+    }
+
+    .panel-heading {
+        padding: 0;
+        padding-left: 30px;
+    }
+
+    div#multiCollapseExample1 .row {
+        margin-top: 5px;
+    }
+
+    .btn-more-option {
+        color: #536cb5;
+        padding: 10px;
+        border: #536cb5 solid thin;
+        margin-bottom: 14px;
+        margin-left: 14px;
+        font-size: 9pt;
+    }
 </style>
+<div class="row " id="pnltypeshow" style="display: none;">
 
-<h2>Search</h2>
-<hr />
-<h4>Base Search</h4>
-<div class="row">
-    <div class="col-md-3">
-        <div class="form-group row">
-            <label for="lname" class="col-sm-3 text-right control-label col-form-label">Base</label>
-            <div class="col-sm-9">
-                <select class="custom-select" id="basetype">
-                    <option value="1" selected>Token</option>
-                    <option value="2">Type</option>
-                </select>
-            </div>
+</div>
+<div class="row search-section" style="margin-top:50px">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Basic Search
+            <a data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="true" aria-controls="multiCollapseExample1">
+                <span class="fa fa-angle-double-down " style="font-size: 20px;"></span>
+            </a>
         </div>
+        <div class="panel-body   multi-collapse in" id="multiCollapseExample1" aria-expanded="true">
 
-
-    </div>
-    <div class="col-md-9" >
- 
-        </div>
-        
-    </div>
-<div class="row">
-    <div class="col-md-3">
-        <div class="form-group row">
-            <label for="fname" class="col-sm-6 text-right control-label col-form-label">Token Range</label>
-            <div class="col-sm-6">
-                <div class="form-group row">
-                    <div class="col-sm-6">
-                        <input class="form-control" type="number" value="" id="example-number-input">
-
+            <div class="row form-group">
+                <div class="col-md-3">
+                    <label for="lname" class="col-sm-3 text-center control-label col-form-label">Search By</label>
+                    <div class="col-sm-9 text-left">
+                        <select class="custom-select" id="basetype">
+                            <option value="1" selected>Token</option>
+                            <option value="2">Type</option>
+                        </select>
                     </div>
-                    <div class="col-sm-6">
-                        <input class="form-control" type="number" value="" id="example-number-input">
+                </div>
+                <div class="col-md-3">
+                    <label for="lname" class="col-sm-3 text-center control-label col-form-label">Lema</label>
+                    <div class="col-sm-9 text-left">
+                        <input type="text" class="form-control" id="fname" placeholder="Lemma Here">
 
                     </div>
                 </div>
             </div>
-        </div>
-
-    </div>
-    <div class="col-md-3">
-        <div class="form-group row">
-            <label for="fname" class="col-sm-3 text-right control-label col-form-label">Orig</label>
-            <div class="col-sm-9">
-                <input type="text" class="form-control" id="fname" placeholder="Orig Here">
-            </div>
-        </div>
-
-    </div>
-    <div class="col-md-3">
-
-        <div class="form-group row">
-            <label for="lname" class="col-sm-3 text-right control-label col-form-label">Target</label>
-            <div class="col-sm-9">
-                <input type="text" class="form-control" id="lname" placeholder="Target Here">
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-
-        <div class="form-group row">
-            <label for="lname" class="col-sm-3 text-right control-label col-form-label">Pos</label>
-            <div class="col-sm-9">
-                <select class="custom-select">
-                    <option selected>Choose</option>
-                    <option value="1">NN</option>
-                    <option value="2">PRF</option>
-                </select>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="row " id="pnltokenshow">
-         
-        pnltokenshow
-
-    </div>
-    <div class="row bg-cyan" id="pnltypeshow" style="display: none;">
-        pnltypeshow
-
-    </div>
-</div>
-<hr />
-<h4>Error Properties</h4>
-
-<div class="row">
-    <div class="col-md-4">
-        <div class="form-group row">
-            <label for="lname" class="col-sm-3 text-right control-label col-form-label">Error Category</label>
-            <div class="col-sm-9">
-                <select class="custom-select">
-                    <option selected>Choos</option>
-                    <option value="1">Low_Up</option>
-                    <option value="2">up_low_intern</option>
-                </select>
-            </div>
-        </div>
-
-    </div>
-    <div class="col-md-4">
-        <div class="form-group row">
-            <label for="fname" class="col-sm-3 text-right control-label col-form-label">Error Kof</label>
-            <div class="col-sm-9">
-                <select class="custom-select">
-                    <option selected>Choos</option>
-                    <option value="1">double_Syl</option>
-                    <option value="2">single_Syl</option>
-                </select>
-            </div>
-        </div>
-
-    </div>
-    <div class="col-md-4">
-
-        <div class="form-group row">
-            <label for="lname" class="col-sm-3 text-right control-label col-form-label">Error Level</label>
-            <div class="col-sm-9">
-                <select class="custom-select">
-                    <option selected>Choos</option>
-                    <option value="1">Mo</option>
-                    <option value="2">SN</option>
-                </select>
-            </div>
-        </div>
-    </div>
-
-
-</div>
-
-<hr />
-<h4>Student Properties</h4>
-<div class="row">
-
-    <div class="col-md-3">
-        <div class="form-group row">
-            <label for="fname" class="col-sm-6 text-right control-label col-form-label">M. Language</label>
-            <div class="col-sm-6">
-                <select class="custom-select">
-                    <option selected>Choos</option>
-                    <option value="1">German</option>
-                    <option value="2">Turkish</option>
-                    <option value="2">Arabic</option>
-                    <option value="2">Persian</option>
-                    <option value="2">Russian</option>
-                </select>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="form-group row">
-            <label for="fname" class="col-sm-3 text-right control-label col-form-label">Grade</label>
-            <div class="col-sm-9">
-                <select class="custom-select">
-                    <option selected>Choos</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="2">3</option>
-                    <option value="2">4</option>
-                </select>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-
-        <div class="form-group row">
-            <label for="lname" class="col-sm-3 text-right control-label col-form-label">Sex</label>
-            <div class="col-sm-9">
-                <select class="custom-select">
-                    <option selected>Choos</option>
-                    <option value="1">Famle</option>
-                    <option value="2">Male</option>
-                </select>
-            </div>
-        </div>
-    </div>
-
-    <div class="form-group col-sm-3">
-        <div class="col-sm-9">
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Born In Germany</label>
-            </div>
-        </div>
-    </div>
-</div>
-
-<hr />
-<button type="button" id="btnsearch" class="btn btn-primary btn-lg">Search</button>
-<hr />
-<div class="container  hide">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="row">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title m-b-0">Word Structure Table</h5>
-                    </div>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Type</th>
-                                <th>Pos</th>
-                                <th>Lemma</th>
-                                <th>Frequency</th>
-                                <th>#</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Schule</td>
-                                <td>nn</td>
-                                <td>Schule</td>
-                                <td>61</td>
-                                <td><button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal">Info</button></td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title m-b-0">Word Structure Table</h5>
-                    </div>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Syllables</th>
-                                <th>Lemma length</th>
-                                <th>Lemma frequency</th>
-                                <th>Type frequency</th>
-                                <th>#</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>2</td>
-                                <td>11</td>
-                                <td>61</td>
-                                <td>128</td>
-                                <td><button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal">Info</button></td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">More Details</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <p>
-                                        absolute normalized 22
-                                    </p>
-                                    <hr />
-                                    <p>
-                                        absolute log10 11
-                                    </p>
-                                    <hr />
-
-                                    <p>
-                                        normalized log10 1211
-                                    </p>
-                                    <hr />
-
-                                    <p>
-                                        Rank 21
-                                    </p>
-                                    <hr />
-                                    <p>
-                                        Rank 123
-                                    </p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-                                </div>
-                            </div>
+            <div class="row" id="pnltokenshow">
+                <div class="col-md-3">
+                    <div class="form-group row">
+                        <label for="fname" class="col-sm-3 text-right control-label col-form-label">Orig</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="fname" placeholder="Orig Here">
                         </div>
                     </div>
 
                 </div>
+                <div class="col-md-3">
+                    <div class="form-group row">
+                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Error Cat.</label>
+                        <div class="col-sm-9">
+                            <select class="custom-select">
+                                <option selected>Choos</option>
+                                <option value="1">Low_Up</option>
+                                <option value="2">up_low_intern</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group row">
+                        <label for="fname" class="col-sm-3 text-right control-label col-form-label">Error Kof</label>
+                        <div class="col-sm-9">
+                            <select class="custom-select">
+                                <option selected>Choos</option>
+                                <option value="1">double_Syl</option>
+                                <option value="2">single_Syl</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+
+                    <div class="form-group row">
+                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Error Level</label>
+                        <div class="col-sm-9">
+                            <select class="custom-select">
+                                <option selected>Choos</option>
+                                <option value="1">Mo</option>
+                                <option value="2">SN</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group row">
+                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Target</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="lname" placeholder="Target Here">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group row">
+                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Pos</label>
+                        <div class="col-sm-9">
+                            <select class="custom-select">
+                                <option selected>Choose</option>
+                                <option value="1">NN</option>
+                                <option value="2">PRF</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group row">
+                        <label for="lname" class="col-sm-6 text-right control-label col-form-label">Nom. Syllables</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="number" value="" id="example-number-input">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group row">
+                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">KOFs</label>
+                        <div class="col-sm-9">
+                            <select class="custom-select">
+                                <option selected>Choose</option>
+                                <option value="1">silent schw.</option>
+                                <option value="2">h.Sep</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group row">
+                        <label for="lname" class="col-sm-6 text-right control-label col-form-label">Morpheme types</label>
+                        <div class="col-sm-6">
+                            <select class="custom-select">
+                                <option selected>Choose</option>
+                                <option value="1">ADJ</option>
+                                <option value="2">ADP</option>
+                                <option value="2">ADV</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-12 text-center">
+                <span class="fa fa-angle-double-down btn-more-option" data-toggle="collapse" href="#multiCollapseExample3" role="button" aria-expanded="false" aria-controls="multiCollapseExample3">
+                    more options
+                </span>
+            </div>
+
+            <hr />
+
+            <div class="row multi-collapse collapsed collapse" id="multiCollapseExample3" aria-expanded="false">
+
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label for="fname" class="col-sm-3 text-right control-label col-form-label">Absoulute frequency</label>
+                            <div class="col-sm-6">
+                                <div class="col-sm-5">
+                                    <input class="form-control" type="number" value="" id="example-number-input">
+                                </div>
+                                <div class="col-sm-2 text-center">
+                                    To
+                                </div>
+                                <div class="col-sm-5">
+                                    <input class="form-control" type="number" value="" id="example-number-input">
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label for="fname" class="col-sm-3 text-right control-label col-form-label">Type Frequency</label>
+                            <div class="col-sm-6">
+                                <div class="col-sm-5">
+                                    <input class="form-control" type="number" value="" id="example-number-input">
+                                </div>
+                                <div class="col-sm-2 text-center">
+                                    To
+                                </div>
+                                <div class="col-sm-5">
+                                    <input class="form-control" type="number" value="" id="example-number-input">
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+
+                        <div class="form-group row">
+                            <label for="lname" class="col-sm-3 text-right control-label col-form-label">Frequency of bigram</label>
+                            <div class="col-sm-6">
+                                <div class="col-sm-5">
+                                    <input class="form-control" type="number" value="" id="example-number-input">
+                                </div>
+                                <div class="col-sm-2 text-center">
+                                    To
+                                </div>
+                                <div class="col-sm-5">
+                                    <input class="form-control" type="number" value="" id="example-number-input">
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+
+                        <div class="form-group row">
+                            <label for="lname" class="col-sm-3 text-right control-label col-form-label">Frequency of bigram</label>
+                            <div class="col-sm-6">
+                                <div class="col-sm-5">
+                                    <input class="form-control" type="number" value="" id="example-number-input">
+                                </div>
+                                <div class="col-sm-2 text-center">
+                                    To
+                                </div>
+                                <div class="col-sm-5">
+                                    <input class="form-control" type="number" value="" id="example-number-input">
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <div class="form-group row">
+                            <label for="fname" class="col-sm-6 text-right control-label col-form-label">St. First Language</label>
+                            <div class="col-sm-6">
+                                <select class="custom-select">
+                                    <option selected>Choos</option>
+                                    <option value="1">German</option>
+                                    <option value="2">Turkish</option>
+                                    <option value="2">Arabic</option>
+                                    <option value="2">Persian</option>
+                                    <option value="2">Russian</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group row">
+                            <label for="fname" class="col-sm-3 text-right control-label col-form-label">St. Grade</label>
+                            <div class="col-sm-9">
+                                <select class="custom-select">
+                                    <option selected>Choos</option>
+                                    <option value="1">Grade 1</option>
+                                    <option value="2">Grade 2</option>
+                                    <option value="2">Grade 3</option>
+                                    <option value="2">Grade 4</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+
+                        <div class="form-group row">
+                            <label for="lname" class="col-sm-3 text-right control-label col-form-label">St. Sex</label>
+                            <div class="col-sm-9">
+                                <select class="custom-select">
+                                    <option selected>Choos</option>
+                                    <option value="1">Famle</option>
+                                    <option value="2">Male</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-sm-3">
+                        <div class="col-sm-12">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">St. Born In Germany</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+@*<div class="row">
+
+        <div class="col-sm-12 ">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Structure Properties
+                    <a data-toggle="collapse" href="#multiCollapseExample4" role="button" aria-expanded="true" aria-controls="multiCollapseExample4">
+                        <span class="fa fa-angle-double-down " style="font-size: 20px;"></span>
+                    </a>
+                </div>
+                <div class="panel-body">
+                    <div class="row multi-collapse in" id="multiCollapseExample4" aria-expanded="true">
+
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Details </h5>
-                    <div class="table-responsive">
+    </div>*@
 
-                        <table id="zero_config" class="table tblresult table-striped table-bordered">
-                            <thead>
-                                <tr>
-                                    <th style="width:20px!important">#</th>
-                                    <th>Text</th>
-                                </tr>
-                            </thead>
-                            <tbody>
 
-                                <tr id="row1">
-                                    <td class="doexpand">
-                                        <span class="fa fa-angle-down " style="font-size: 20px;" aria-hidden="true"></span>
-                                    </td>
-                                    <td class="row1">die <span style="color:red">Schule</span> ist aus</td>
 
-                                </tr>
-                                <tr id="row2">
-                                    <td class="doexpand"><span class="fa fa-angle-down" style="font-size: 20px;" aria-hidden="true"></span></td>
-                                    <td>Mein Weg zur <span style="color:red">Schule</span> Schule ist nicht schwer </td>
-                                </tr>
-                                <tr id="row3">
-                                    <td style=""><span class="fa fa-angle-down" style="font-size: 20px;" aria-hidden="true"></span></td>
-                                    <td>die <span style="color:red">Schule</span> ist aus</td>
-                                </tr>
-                                <tr id="row4">
-                                    <td style=""><span class="fa fa-angle-down" style="font-size: 20px;" aria-hidden="true"></span></td>
-                                    <td>die <span style="color:red">Schule</span> ist aus</td>
-                                </tr>
-                                <tr id="row5">
-                                    <td style=""><span class="fa fa-angle-down" style="font-size: 20px;" aria-hidden="true"></span></td>
-                                    <td>die <span style="color:red">Schule</span> ist aus</td>
-                                </tr>
 
-                            </tbody>
+@*<div class="row">
+        <div class="col-sm-12 col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Lemma search Properties
 
-                        </table>
-                    </div>
+                </div>
+                <div class="panel-body">
 
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <canvas id="myChart" width="200" height="200"></canvas>
-        </div>
-        <div class="col-md-6">
-            <canvas id="myChart1" width="200" height="200"></canvas>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <canvas id="line-chart" width="400" height="400"></canvas>
-        </div>
-        <div class="col-md-6">
-            <canvas id="bar-chart-horizontal" width="800" height="450"></canvas>
+        <div class="col-sm-12 col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Student Properties
+                    <a data-toggle="collapse" href="#multiCollapseExample5" role="button" aria-expanded="true" aria-controls="multiCollapseExample5">
+                        <span class="fa fa-angle-double-down " style="font-size: 20px;"></span>
+                    </a>
+                </div>
+                <div class="panel-body">
 
+                </div>
+            </div>
+        </div>
+    </div>*@
+</div>
+
+<div class="row" style="margin:20px">
+    <button type="button" id="btnsearch" class="btn btn-primary btn-lg">Search</button>
+</div>
+
+<div class="container-search  hide">
+    @*<div class="panel panel-default">
+            <div class="panel-heading">
+                Result
+                <a data-toggle="collapse" href="#multiCollapseExample6" role="button" aria-expanded="true" aria-controls="multiCollapseExample6">
+                    <span class="fa fa-angle-double-down " style="font-size: 20px;"></span>
+                </a>
+            </div>
+            <div class="panel-body">
+                <div class="row multi-collapse in" id="multiCollapseExample6" aria-expanded="true">
+
+
+                </div>
+            </div>
+        </div>*@
+    @*<div class="row">
+            <div class="col-sm-12 col-md-6"></div>
+            <div class="col-sm-12 col-md-6"></div>
+        </div>*@
+    <div class="row">
+        <div class="col-sm-12 col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Word Structure Table
+                    <a data-toggle="collapse" href="#multiCollapseExample7" role="button" aria-expanded="true" aria-controls="multiCollapseExample7">
+                        <span class="fa fa-angle-double-down " style="font-size: 20px;"></span>
+                    </a>
+                </div>
+                <div class="panel-body">
+                    <div class="row multi-collapse in" id="multiCollapseExample7" aria-expanded="true">
+                        <div class="card">
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Pos</th>
+                                            <th>Lemma</th>
+                                            <th>Frequency</th>
+                                            <th>#</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Schule</td>
+                                            <td>nn</td>
+                                            <td>Schule</td>
+                                            <td>61</td>
+                                            <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">Info</button></td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Word Structure Table
+                    <a data-toggle="collapse" href="#multiCollapseExample8" role="button" aria-expanded="true" aria-controls="multiCollapseExample8">
+                        <span class="fa fa-angle-double-down " style="font-size: 20px;"></span>
+                    </a>
+                </div>
+                <div class="panel-body">
+                    <div class="row multi-collapse in" id="multiCollapseExample8" aria-expanded="true">
+
+                        <div class="card">
+                            <div class="card-body">
+                            </div>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Syllables</th>
+                                        <th>Lemma length</th>
+                                        <th>Lemma frequency</th>
+                                        <th>Type frequency</th>
+                                        <th>#</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>11</td>
+                                        <td>61</td>
+                                        <td>128</td>
+                                        <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">Info</button></td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">More Details</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>
+                                                absolute normalized 22
+                                            </p>
+                                            <hr />
+                                            <p>
+                                                absolute log10 11
+                                            </p>
+                                            <hr />
+
+                                            <p>
+                                                normalized log10 1211
+                                            </p>
+                                            <hr />
+
+                                            <p>
+                                                Rank 21
+                                            </p>
+                                            <hr />
+                                            <p>
+                                                Rank 123
+                                            </p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Details
+            <a data-toggle="collapse" href="#multiCollapseExample9" role="button" aria-expanded="true" aria-controls="multiCollapseExample9">
+                <span class="fa fa-angle-double-down " style="font-size: 20px;"></span>
+            </a>
+        </div>
+        <div class="panel-body">
+            <div class="row multi-collapse in" id="multiCollapseExample9" aria-expanded="true">
+                <div class="card">
+                    <div class="card-body">
+
+                        <div class="table-responsive">
+
+                            <table id="zero_config" class="table tblresult table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th style="width:20px!important">#</th>
+                                        <th>Text</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr id="row1">
+                                        <td class="doexpand">
+                                            <span class="fa fa-angle-down " style="font-size: 20px;" aria-hidden="true"></span>
+                                        </td>
+                                        <td class="row1">die <span style="color:red">Schule</span> ist aus</td>
+
+                                    </tr>
+                                    <tr id="row2">
+                                        <td class="doexpand"><span class="fa fa-angle-down" style="font-size: 20px;" aria-hidden="true"></span></td>
+                                        <td>Mein Weg zur <span style="color:red">Schule</span> Schule ist nicht schwer </td>
+                                    </tr>
+                                    <tr id="row3">
+                                        <td style=""><span class="fa fa-angle-down" style="font-size: 20px;" aria-hidden="true"></span></td>
+                                        <td>die <span style="color:red">Schule</span> ist aus</td>
+                                    </tr>
+                                    <tr id="row4">
+                                        <td style=""><span class="fa fa-angle-down" style="font-size: 20px;" aria-hidden="true"></span></td>
+                                        <td>die <span style="color:red">Schule</span> ist aus</td>
+                                    </tr>
+                                    <tr id="row5">
+                                        <td style=""><span class="fa fa-angle-down" style="font-size: 20px;" aria-hidden="true"></span></td>
+                                        <td>die <span style="color:red">Schule</span> ist aus</td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Chart of Students
+                    <a data-toggle="collapse" href="#multiCollapseExample10" role="button" aria-expanded="true" aria-controls="multiCollapseExample10">
+                        <span class="fa fa-angle-double-down " style="font-size: 20px;"></span>
+                    </a>
+                </div>
+                <div class="panel-body">
+                    <div class="row multi-collapse in" id="multiCollapseExample10" aria-expanded="true">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <canvas id="line-chart" width="400" height="400"></canvas>
+                            </div>
+                            <div class="col-md-6">
+                                <canvas id="bar-chart-horizontal" width="800" height="450"></canvas>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Chart of Students
+                    <a data-toggle="collapse" href="#multiCollapseExample11" role="button" aria-expanded="true" aria-controls="multiCollapseExample11">
+                        <span class="fa fa-angle-double-down " style="font-size: 20px;"></span>
+                    </a>
+                </div>
+                <div class="panel-body">
+                    <div class="row multi-collapse in" id="multiCollapseExample11" aria-expanded="true">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <canvas id="myChart" width="200" height="200"></canvas>
+                            </div>
+                            <div class="col-md-6">
+                                <canvas id="myChart1" width="200" height="200"></canvas>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
     <table class="table tbldetails hide">
         <thead>
             <tr>
@@ -410,6 +701,8 @@
 
         </tbody>
     </table>
+
+
 </div>
 @section script{
     <script src="../../assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
@@ -424,8 +717,11 @@
     <script src="~/scripts/chart.js"></script>
 
     <script>
+
+        var $body = $("body");
         $('#btnsearch').on('click', function myfunction() {
-            $('.container').toggleClass('hide');
+            $body.addClass("loading");
+
             var ctx1 = document.getElementById('myChart1');
             var myChart1 = new Chart(ctx1, {
                 type: 'bar',
@@ -465,7 +761,7 @@
                             'rgba(54, 162, 235 )',
                             'rgba(255, 206, 86 )',
                             'rgba(75, 192, 192 )',
-                             'rgba(126, 255, 60 )',
+                            'rgba(126, 255, 60 )',
                             'rgba(153, 102, 25 )'
 
                         ],
@@ -505,11 +801,11 @@
                 data: {
                     labels: ["Grade 1 ", "Grade 2", "Grade 3", "Grade 4"],
                     datasets: [
-                      {
-                          label: "Population (millions)",
-                          backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-                          data: [2478, 5267, 734, 1784]
-                      }
+                        {
+                            label: "Population (millions)",
+                            backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+                            data: [2478, 5267, 734, 1784]
+                        }
                     ]
                 },
                 options: {
@@ -520,8 +816,12 @@
                     }
                 }
             });
+            $body.removeClass("loading")
+            $('.container-search').toggleClass('hide');
+
         });
-       
+        function myfunction() {
+        }
         $(".doexpand").on('click', function myfunction() {
             var $this = $(this).closest('td').next();
             var $table = $('.tbldetails').clone();
@@ -536,21 +836,25 @@
             $this.toggleClass('expand');
 
             $table.toggleClass('hide');
-            
+
             //$('.expand::after').toggle();
         })
 
         $("#basetype").on('change', function () {
-            if (this.value==1) {
-                $("#pnltypeshow").hide();
-                $("#pnltokenshow").show();
+            $body.addClass("loading");
+            if (this.value == 1) {
+                $("#pnltypeshow").fadeOut();
+                $("#pnltokenshow").fadeIn();
             } else {
-                $("#pnltokenshow").hide();
-                $("#pnltypeshow").show();
+                $("#pnltokenshow").fadeOut();
+                $("#pnltypeshow").fadeIn();
             }
+            //$('.scale-changeble').toggleClass('col-md-6')
         });
-        $(document).ready(function myfunction() {
-           
+
+        $(document).on({
+            ajaxStart: function () { $body.addClass("loading"); },
+            ajaxStop: function () { $body.removeClass("loading"); }
         });
     </script>
 
