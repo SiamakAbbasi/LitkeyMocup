@@ -12,6 +12,17 @@
 }
 
 <style>
+   
+    .inner-table td {
+        border: 1px solid;
+        padding: 2px
+    }
+
+    .inner-table tr {
+        border: 1px solid;
+        padding: 2px
+    }
+
     h4 {
         padding: 10px;
         margin-bottom: 10px;
@@ -32,14 +43,15 @@
 
     .tbldetails {
         position: absolute;
-        top: 50;
+        width:100px;
+        top: 50px;
         left: 0;
     }
 
     .expand::after {
         content: "";
         display: block;
-        height: 110px;
+        height: 460px;
     }
 
     .form-control, .input, .btn {
@@ -473,7 +485,7 @@
                                             <td>nn</td>
                                             <td>Schule</td>
                                             <td>61</td>
-                                            <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">Info</button></td>
+                                            <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">more</button></td>
                                         </tr>
 
                                     </tbody>
@@ -516,7 +528,7 @@
                                         <td>11</td>
                                         <td>61</td>
                                         <td>128</td>
-                                        <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">Info</button></td>
+                                        <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">more</button></td>
                                     </tr>
 
                                 </tbody>
@@ -598,12 +610,12 @@
                                         <td class="doexpand">
                                             <span class="fa fa-angle-down " style="font-size: 20px;" aria-hidden="true"></span>
                                         </td>
-                                        <td class="row1">die <span style="color:red">Schule</span> ist aus</td>
+                                        <td class="row1">in	der <span style="color:red">Schule</span> Bauklötze</td>
 
                                     </tr>
                                     <tr id="row2">
                                         <td class="doexpand"><span class="fa fa-angle-down" style="font-size: 20px;" aria-hidden="true"></span></td>
-                                        <td>Mein Weg zur <span style="color:red">Schule</span> Schule ist nicht schwer </td>
+                                        <td class="row2">in	der <span style="color:red">Schule</span> Bauklötze</td>
                                     </tr>
                                     <tr id="row3">
                                         <td style=""><span class="fa fa-angle-down" style="font-size: 20px;" aria-hidden="true"></span></td>
@@ -679,24 +691,299 @@
         </div>
     </div>
 
-
-
-
     <table class="table tbldetails hide">
         <thead>
             <tr>
-                <th>Type</th>
-                <th>Pos</th>
-                <th>Lemma</th>
-                <th>Frequency</th>
+                <th>#</th>
+                <th>in</th>
+                <th>der</th>
+                <th>Schule</th>
+                <th>Bauklöt-ze</th>
+
             </tr>
         </thead>
         <tbody>
             <tr>
+                <td>orig</td>
+                <td>in</td>
+                <td>der</td>
                 <td>Schule</td>
-                <td>nn</td>
+                <td>Bauklöt-ze</td>
+            </tr>
+            <tr>
+                <td>target</td>
+                <td>in</td>
+                <td>der</td>
                 <td>Schule</td>
-                <td>61</td>
+                <td>Bauklötze</td>
+            </tr>
+            <tr>
+                <td>pos</td>
+                <td>APPR</td>
+                <td>ART</td>
+                <td>NN</td>
+                <td>NN</td>
+            </tr>
+            <tr>
+                <td> char_o</td>
+                <td>
+                    <table class="inner-table">
+                        <tr>
+                            <td>i</td>
+                            <td>n</td>
+
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="inner-table">
+                        <tr>
+                            <td>d</td>
+                            <td>e</td>
+                            <td>r</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="inner-table">
+                        <tr>
+                            <td>S</td>
+                            <td>c</td>
+                            <td>h</td>
+                            <td>u</td>
+                            <td>l</td>
+                            <td>e</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="inner-table">
+                        <tr>
+
+                            <td>B</td>
+                            <td>a</td>
+                            <td>u</td>
+                            <td>k</td>
+                            <td>l</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>char_t</td>
+                <td>
+                    <table class="inner-table">
+                        <tr>
+                            <td>i</td>
+                            <td>n</td>
+
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="inner-table">
+                        <tr>
+                            <td>d</td>
+                            <td>e</td>
+                            <td>r</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="inner-table">
+                        <tr>
+                            <td width="40px">S</td>
+
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="inner-table">
+                        <tr>
+
+                            <td>B</td>
+                            <td>a</td>
+                            <td>u</td>
+                            <td>k</td>
+                            <td>l</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>phon</td>
+                <td>
+                    <table class="inner-table">
+                        <tr>
+                            <td>i</td>
+                            <td>n</td>
+
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="inner-table">
+                        <tr>
+                            <td>d</td>
+                            <td>e</td>
+                            <td>r</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="inner-table">
+                        <tr>
+                            <td>S</td>
+                            <td>c</td>
+                            <td>h</td>
+                            <td>u</td>
+                            <td>l</td>
+                            <td>e</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="inner-table">
+                        <tr>
+
+                            <td>B</td>
+                            <td>a</td>
+                            <td>u</td>
+                            <td>k</td>
+                            <td>l</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>graph</td>
+                <td>
+                    <table class="inner-table">
+                        <tr>
+                            <td>i</td>
+                            <td>n</td>
+
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="inner-table">
+                        <tr>
+                            <td>d</td>
+                            <td>e</td>
+                            <td>r</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="inner-table">
+                        <tr>
+                            <td>S</td>
+                            <td>c</td>
+                            <td>h</td>
+                            <td>u</td>
+                            <td>l</td>
+                            <td>e</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="inner-table">
+                        <tr>
+
+                            <td>B</td>
+                            <td>a</td>
+                            <td>u</td>
+                            <td>k</td>
+                            <td>l</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>syl</td>
+                <td>
+                    <table class="inner-table">
+                        <tr>
+                            <td>stress</td>
+
+
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="inner-table">
+                        <tr>
+                            <td width="50px">stress</td>
+
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="inner-table">
+                        <tr>
+                            <td width="50px">stress</td>
+                            <td width="50px">red</td>
+
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="inner-table">
+                        <tr>
+
+                            <td width="50px">stress</td>
+                            <td width="50px">unstress</td>
+
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>morph</td>
+                <td>
+                    <table class="inner-table">
+                        <tr>
+                            <td>APD</td>
+
+
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="inner-table">
+                        <tr>
+                            <td>ART</td>
+                            <td>INFL</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="inner-table">
+                        <tr>
+                            <td width="60px">V</td>
+                            <td width="20px">INFL</td>
+
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="inner-table">
+                        <tr>
+
+                            <td>NN</td>
+                            <td>NN</td>
+                            <td>u</td>
+                            <td>k</td>
+                            <td>l</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>KOFs</td>
+                <td>r_voc</td>
+                <td>doubleC_syl,graph_comb</td>
             </tr>
 
         </tbody>
