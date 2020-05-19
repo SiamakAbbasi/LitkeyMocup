@@ -1,0 +1,80 @@
+﻿   
+    .inner-table td {
+        border: 1px solid;
+        padding: 2px
+    }
+
+    .inner-table tr {
+        border: 1px solid;
+        padding: 2px
+    }
+
+    h4 {
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    label {
+        font-size: 10pt;
+        white-space: nowrap;
+    }
+
+    span {
+        cursor: pointer;
+    }
+
+    .tblresult td {
+        position: relative;
+    }
+
+    .tbldetails {
+        position: absolute;
+        width:100px;
+        top: 50px;
+        left: 0;
+    }
+
+    .expand::after {
+        content: "";
+        display: block;
+        height: 460px;
+    }
+
+    .form-control, .input, .btn {
+        border-radius: 0;
+    }
+
+    .custom-select {
+        width: 100%;
+    }
+
+    hr {
+        border: solid 0.1px;
+    }
+
+    .search-section hr {
+        color: #cec9c9;
+    }
+
+    .card.mb-3 {
+        padding: 10px;
+        background: white;
+    }
+
+    .panel-heading {
+        padding: 0;
+        padding-left: 30px;
+    }
+
+    div#multiCollapseExample1 .row {
+        margin-top: 5px;
+    }
+
+    .btn-more-option {
+        color: #536cb5;
+        padding: 10px;
+        border: #536cb5 solid thin;
+        margin-bottom: 14px;
+        margin-left: 14px;
+        font-size: 9pt;
+    }

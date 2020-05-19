@@ -19,14 +19,34 @@ namespace LitkeyDemo.Controllers
 
             return View();
         }
+        public ActionResult Dashboard()
+        {
+            ViewBag.Message = "dashboard";
+
+            return View();
+        }
         public ActionResult Search()
         {
 
             return View();
         }
-        public ActionResult Search2()
+        public ActionResult MainSearch()
         {
 
+            return View();
+        }
+
+        public ActionResult ErrorRate()
+        {
+
+            return View();
+        }
+        public ActionResult Students()
+        {
+            return View();
+        }
+        public ActionResult Word()
+        {
             return View();
         }
         public ActionResult Contact()

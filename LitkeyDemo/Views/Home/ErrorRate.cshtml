@@ -1,0 +1,562 @@
+﻿
+@{
+    ViewBag.Title = "ErrorRate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ErrorRate</h2>
+<style>
+    .slidecontainer {
+        width: 100%;
+    }
+
+    .slider {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 25px;
+        background: #d3d3d3;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+    }
+
+        .slider:hover {
+            opacity: 1;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            background: #4CAF50;
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            background: #4CAF50;
+            cursor: pointer;
+        }
+
+    .alert-primary {
+        color: #004085;
+        background-color: #cce5ff;
+        border-color: #b8daff;
+    }
+
+    .alert {
+        position: relative;
+        padding: .75rem 1.25rem;
+        margin-bottom: 1rem;
+        border: 1px solid transparent;
+        border-radius: .25rem;
+    }
+</style>
+
+@section Style {
+    <link rel="stylesheet" type="text/css" href="~/assets/extra-libs/multicheck/multicheck.css">
+    <link href="~/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+    <link href="~/Content/Chart.min.css" rel="stylesheet" />
+    @*<link href="~/css/btn.css" rel="stylesheet" />*@
+
+    <link href="~/css/local-search.css" rel="stylesheet" />
+}
+
+
+<div class="row " style="margin-top:50px">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Error rate Search
+            <a data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="true" aria-controls="multiCollapseExample1">
+                <span class="fa fa-angle-double-down " style="font-size: 20px;"></span>
+            </a>
+        </div>
+        <div class="panel-body   multi-collapse in" id="multiCollapseExample1" aria-expanded="true">
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group row">
+                        <label for="lname" class="col-sm-3 text-right control-label col-form-label"> Range between </label>
+
+                        <div class="col-sm-5">
+                            <div class="slidecontainer">
+                                <input type="range" min="1" max="100" value="1" class="slider" id="myRange"> @*https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_rangeslider*@
+                                <p>Rate: <span id="demo"></span></p>
+
+                            </div>
+                            <div class="slidecontainer">
+                                <input type="range" min="1" max="100" value="100" class="slider" id="myRange1">  
+                                <p>Rate: <span id="demo1"></span></p>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group row">
+                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">the word that </label>
+                        <div class="col-sm-6">
+                            <select class="custom-select">
+                                <option selected>Choos</option>
+                                <option value="1">start with</option>
+                                <option value="2">end with</option>
+                                <option value="2">contains</option>
+                            </select>
+
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="fname" placeholder="word">
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group row">
+                        <label for="fname" class="col-sm-3 text-right control-label col-form-label">Error Kof</label>
+                        <div class="col-sm-9">
+                            <select class="custom-select">
+                                <option selected>All</option>
+                                <option value="1">double_Syl</option>
+                                <option value="2">single_Syl</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+
+                    <div class="form-group row">
+                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Error Level</label>
+                        <div class="col-sm-9">
+                            <select class="custom-select">
+                                <option selected>All</option>
+                                <option value="3">PG</option>
+                                <option value="2">SL</option>
+                                <option value="1">MO</option>
+                                <option value="4">SN</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+          
+            </div>
+
+            <hr />
+
+
+
+
+
+        </div>
+    </div>
+
+</div>
+
+<div class="row" style="margin:20px">
+    <div class="row">
+        <div class="col-sm-2 col-md-2">
+            <button type="button" id="btnsearch" class="btn btn-primary btn-lg">Search</button>
+        </div>
+
+        <div class="col-sm-8 ">
+
+            <div class="col-sm-6">
+                <div class="alert alert-primary" role="alert">
+                    http://litkey/X972834xkf
+                </div>
+            </div>
+            <div class="col-sm-2 col-md-2">
+                <a href="#" class="btn btn-info">copy</a>
+
+            </div>
+            <div class="col-sm-4 col-md-4">
+                <small id="passwordHelpInline" class="text-muted">
+                    you can use this url as refrence 
+                </small>
+            </div>
+        </div>
+        <div class="col-sm-2  ">
+
+        </div>
+
+    </div>
+</div>
+<hr />
+<div class="row search-section  " style="margin-top:50px">
+
+    <div class="row">
+      
+        <div class="col-sm-12  ">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Word Structure Table
+                    <a data-toggle="collapse" href="#multiCollapseExample8" role="button" aria-expanded="true" aria-controls="multiCollapseExample8">
+                        <span class="fa fa-angle-double-down " style="font-size: 20px;"></span>
+                    </a>
+                </div>
+                <div class="panel-body">
+                    <div class="row multi-collapse in" id="multiCollapseExample8" aria-expanded="true">
+
+                        <div class="card">
+                            <div class="card-body">
+                            </div>
+                            <table class="table" id="zero_config">
+                                <thead>
+                                    <tr>
+                                        <th>Word</th>
+                                        <th>freq</th>
+                                        <th>Count</th>
+                                        <th>Error Count</th>
+                                        <th>Percent</th>
+                                        <th>Kof</th>
+                                        <th>Error Level</th>
+                                        <th>Pos</th>
+                                        <th>Lex/func</th>
+                                        <th>Word Info.</th>
+                                        <th>who</th>
+                                        <th>Forms</th>
+                                        <th>report</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>schulöffnung</td>
+                                        <td>88</td>
+                                        <td>55</td>
+                                        <td>23</td>
+                                        <td>45%</td>
+                                        <td>Kof1  </td>
+                                        <td>errLevel2 </td>
+                                        <td>Adv </td>
+                                        <td>lex </td>
+                                        <td><a class="btn btn-info" target="_blank" href="@Url.Action("Word")">wordinfo.</a></td>
+                                        <td><a class="btn btn-info" target="_blank" href="@Url.Action("Students")">who</a></td>
+                                        <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal1">Forms</button></td>
+                                        <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">report</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>akquirieren</td>
+                                        <td>75</td>
+                                        <td>54</td>
+                                        <td>20</td>
+                                        <td>42%</td>
+                                        <td>Kof2 </td>
+                                        <td>errLevel1 </td>
+                                        <td>Adj </td>
+                                        <td>func </td>
+                                        <td><a class="btn btn-info" target="_blank" href="@Url.Action("Word")">wordinfo.</a></td>
+                                        <td><a class="btn btn-info" target="_blank" href="@Url.Action("Students")">who</a></td>
+                                        <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal1">Forms</button></td>
+                                        <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">report</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>abgeschlossen</td>
+                                        <td>69</td>
+                                        <td>46</td>
+                                        <td>19</td>
+                                        <td>39%</td>
+                                        <td>Kof3</td>
+                                        <td>errLevel3 </td>
+                                        <td>Nom </td>
+                                        <td>func </td>
+                                        <td><a class="btn btn-info" target="_blank" href="@Url.Action("Word")">wordinfo.</a></td>
+                                        <td><a class="btn btn-info" target="_blank" href="@Url.Action("Students")">who</a></td>
+                                        <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal1">Forms</button></td>
+                                        <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">report</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ärgernis</td>
+                                        <td>62</td>
+                                        <td>51</td>
+                                        <td>11</td>
+                                        <td>45%</td>
+                                        <td>DoubleC  </td>
+                                        <td>errLevel4 </td>
+                                        <td>Adj </td>
+                                        <td>lex </td>
+                                        <td><a class="btn btn-info" target="_blank" href="@Url.Action("Word")">wordinfo.</a></td>
+                                        <td><a class="btn btn-info" target="_blank" href="@Url.Action("Students")">who</a></td>
+                                        <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal1">Forms</button></td>
+                                        <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">report</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>bisschen</td>
+                                        <td>55</td>
+                                        <td>50</td>
+                                        <td>23</td>
+                                        <td>45%</td>
+                                        <td>DoubleC  </td>
+                                        <td>errLevel1 </td>
+                                        <td>Adj </td>
+                                        <td>lex </td>
+                                        <td><a class="btn btn-info" target="_blank" href="@Url.Action("Word")">wordinfo.</a></td>
+                                        <td><a class="btn btn-info" target="_blank" href="@Url.Action("Students")">who</a></td>
+                                        <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal1">Forms</button></td>
+                                        <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">report</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Büfett</td>
+                                        <td>48</td>
+                                        <td>41</td>
+                                        <td>23</td>
+                                        <td>45%</td>
+                                        <td>DoubleC  </td>
+                                        <td>errLevel1 </td>
+                                        <td>Adj </td>
+                                        <td>func </td>
+                                        <td><a class="btn btn-info" target="_blank" href="@Url.Action("Word")">wordinfo.</a></td>
+                                        <td><a class="btn btn-info" target="_blank" href="@Url.Action("Students")">who</a></td>
+                                        <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal1">Forms</button></td>
+                                        <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">report</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">More Details</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Problem:
+                                            <textarea id="txtarea1"></textarea>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-success" data-dismiss="modal">submit</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">differrent form of error</h5>
+
+                                        </div>
+                                        <div class="modal-body">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Word</th>
+                                                        <th>Frequency</th>
+                                                        <th>Count</th>
+                                                        <th>who</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>schulöfnung</td>
+                                                        <td>20</td>
+                                                        <td>11</td>
+                                                        <td><a class="btn btn-info" target="_blank" href="@Url.Action("Students")">who</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>schuloffnung</td>
+                                                        <td>3</td>
+                                                        <td>10</td>
+                                                        <td><a   class="btn btn-info" target="_blank" href="@Url.Action("Students")">who</a></td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-info" data-dismiss="modal">close</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*<div class="row">
+        <div class="col-sm-12 col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Word Structure Table
+                        <a data-toggle="collapse" href="#multiCollapseExample7" role="button" aria-expanded="true" aria-controls="multiCollapseExample7">
+                            <span class="fa fa-angle-double-down " style="font-size: 20px;"></span>
+                        </a>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row multi-collapse in" id="multiCollapseExample7" aria-expanded="true">
+                            <div class="card">
+                                <div class="card-body">
+                                    <table class="table" >
+                                        <thead>
+                                            <tr>
+                                                <th>Multi Language</th>
+                                                <th>German</th>
+                                                <th>Age</th>
+                                                <th>Lemma</th>
+                                                <th>Frequency</th>
+                                                <th>Normalized lema Frequency</th>
+                                                <th>#</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>M</td>
+                                                <td>nn</td>
+                                                <td>Schule</td>
+                                                <td>61</td>
+                                                <td>50</td>
+                                                <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">more</button></td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>*@
+
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Chart of Students
+                        <a data-toggle="collapse" href="#multiCollapseExample10" role="button" aria-expanded="true" aria-controls="multiCollapseExample10">
+                            <span class="fa fa-angle-double-down " style="font-size: 20px;"></span>
+                        </a>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row multi-collapse in" id="multiCollapseExample10" aria-expanded="true">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <canvas id="line-chart" width="400" height="400"></canvas>
+                                </div>
+                                <div class="col-md-6">
+                                    <canvas id="errareachart" width="800" height="450"></canvas>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Chart of Students
+                        <a data-toggle="collapse" href="#multiCollapseExample11" role="button" aria-expanded="true" aria-controls="multiCollapseExample11">
+                            <span class="fa fa-angle-double-down " style="font-size: 20px;"></span>
+                        </a>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row multi-collapse in" id="multiCollapseExample11" aria-expanded="true">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <canvas id="myChart" width="200" height="200"></canvas>
+                                </div>
+                                <div class="col-md-6">
+                                    <canvas id="myChart1" width="200" height="200"></canvas>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Chart of Students
+                    <a data-toggle="collapse" href="#multiCollapseExample10" role="button" aria-expanded="true" aria-controls="multiCollapseExample10">
+                        <span class="fa fa-angle-double-down " style="font-size: 20px;"></span>
+                    </a>
+                </div>
+                <div class="panel-body">
+                    <div class="row multi-collapse in" id="multiCollapseExample10" aria-expanded="true">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <canvas id="select-line-chart" width="400" height="400"></canvas>
+                            </div>
+                            <div class="col-md-6">
+                                <canvas id="select-errareachart" width="800" height="450"></canvas>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Chart of Students
+                    <a data-toggle="collapse" href="#multiCollapseExample11" role="button" aria-expanded="true" aria-controls="multiCollapseExample11">
+                        <span class="fa fa-angle-double-down " style="font-size: 20px;"></span>
+                    </a>
+                </div>
+                <div class="panel-body">
+                    <div class="row multi-collapse in" id="multiCollapseExample11" aria-expanded="true">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <canvas id="select-myChart" width="200" height="200"></canvas>
+                            </div>
+                            <div class="col-md-6">
+                                <canvas id="select-myChart1" width="200" height="200"></canvas>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+@section script{
+    <script>
+        var slider = document.getElementById("myRange");
+        var slider1 = document.getElementById("myRange1");
+        var output = document.getElementById("demo");
+        var output1 = document.getElementById("demo1");
+        output.innerHTML = slider.value; // Display the default slider value
+        output1.innerHTML = slider1.value; // Display the default slider value
+
+        // Update the current slider value (each time you drag the slider handle)
+        slider.oninput = function () {
+            output.innerHTML = this.value;
+        }
+        slider1.oninput = function () {
+            output1.innerHTML = this.value;
+        }
+
+    </script>
+    <script src="../../assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
+    <script src="../../assets/extra-libs/multicheck/jquery.multicheck.js"></script>
+    <script src="~/assets/extra-libs/DataTables/datatables.min.js"></script>
+    <script>
+
+    </script>
+    <script src="~/scripts/chart.js"></script>
+    <script src="~/js/err-rate-local.js"></script>
+
+}

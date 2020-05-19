@@ -895,6 +895,7 @@
     <Content Include="css\animate.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\btn.css" />
+    <Content Include="css\local-search.css" />
     <Content Include="css\nivo-lightbox-theme\default\close%402x.png" />
     <Content Include="css\nivo-lightbox-theme\default\close.png" />
     <Content Include="css\nivo-lightbox-theme\default\default.css" />
@@ -1159,6 +1160,7 @@
     <Content Include="dist\css\icons\weather-icons\sass\weather-icons.min.scss" />
     <Content Include="dist\css\icons\weather-icons\sass\weather-icons.scss" />
     <Content Include="HtmlPages\tables.html" />
+    <Content Include="img\bodybg\bg1.jpg" />
     <Content Include="img\bodybg\bg1.png" />
     <Content Include="img\bodybg\bg10.png" />
     <Content Include="img\bodybg\bg2.png" />
@@ -1169,9 +1171,11 @@
     <Content Include="img\bodybg\bg7.png" />
     <Content Include="img\bodybg\bg8.jpg" />
     <Content Include="img\bodybg\bg9.png" />
-    <Content Include="img\dummy\bg1.jpg" />
     <Content Include="img\dummy\img-1.jpg" />
-    <Content Include="img\dummy\img-1.png" />
+    <Content Include="img\dummy\bg1.jpg" />
+    <Content Include="img\dummy\_bg1.jpg" />
+    <Content Include="img\dummy\img-5.jpg" />
+    <Content Include="img\dummy\img-4.png" />
     <Content Include="img\dummy\img-3.png" />
     <Content Include="img\dummy\partner-1.jpg" />
     <Content Include="img\dummy\partner-2.jpg" />
@@ -1192,12 +1196,16 @@
     <Content Include="img\slides\slide3\img1.jpg" />
     <Content Include="img\slides\slide3\img1.png" />
     <Content Include="img\team\1.jpg" />
+    <Content Include="img\team\4.jpg" />
+    <Content Include="img\team\3.jpg" />
+    <Content Include="img\team\___1.jpg" />
     <Content Include="img\team\2.jpg" />
-    <Content Include="img\team\3.JPG" />
+    <Content Include="img\team\__2.jpg" />
+    <Content Include="img\team\3__.JPG" />
     <Content Include="img\team\_1.jpg" />
     <Content Include="img\team\_2.jpg" />
     <Content Include="img\team\_3.jpg" />
-    <Content Include="img\team\4.jpg" />
+    <Content Include="img\team\___4.jpg" />
     <Content Include="img\testimonials\1.jpg" />
     <Content Include="img\testimonials\2.jpg" />
     <Content Include="img\testimonials\3.jpg" />
@@ -1211,6 +1219,8 @@
     <Content Include="js\jquery.easing.min.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="js\jquery.scrollTo.js" />
+    <Content Include="js\err-rate-local.js" />
+    <Content Include="js\local-site.js" />
     <Content Include="js\nivo-lightbox.min.js" />
     <Content Include="js\owl.carousel.min.js" />
     <Content Include="js\stellar.js" />
@@ -1382,6 +1392,11 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Home\MainSearch.cshtml" />
+    <Content Include="Views\Home\Dashboard.cshtml" />
+    <Content Include="Views\Home\ErrorRate.cshtml" />
+    <Content Include="Views\Home\Students.cshtml" />
+    <Content Include="Views\Home\Word.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
