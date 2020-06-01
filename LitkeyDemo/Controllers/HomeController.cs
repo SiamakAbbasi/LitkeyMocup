@@ -45,6 +45,11 @@ namespace LitkeyDemo.Controllers
         {
             return View();
         }
+
+        public ActionResult Comparing()
+        {
+            return View();
+        }
         public ActionResult Word()
         {
             return View();

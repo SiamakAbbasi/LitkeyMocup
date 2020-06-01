@@ -3,4 +3,669 @@
     ViewBag.Title = "Dashboard";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
- 
+
+
+
+<h2>Student</h2>
+<style>
+    .card.mb-3 {
+        padding: 30px;
+        color: white;
+    }
+
+    .orange {
+        background-color: #ffc107;
+    }
+
+    .red {
+        background-color: #dd3d31;
+    }
+
+    .green {
+        background-color: #28a745;
+    }
+
+    .blue {
+        background-color: #2092ed;
+    }
+
+    .card-title, .card-text, .text-muted {
+        color: white;
+    }
+</style>
+
+@section Style {
+    <link rel="stylesheet" type="text/css" href="~/assets/extra-libs/multicheck/multicheck.css">
+    <link href="~/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+    <link href="~/Content/Chart.min.css" rel="stylesheet" />
+    @*<link href="~/css/btn.css" rel="stylesheet" />*@
+
+}
+
+<div class="row    " style="margin-top:50px;margin-bottom:50px;padding:50px">
+
+    <div class="col-sm-12  col-md-3  ">
+        <div class="card mb-3 red " style="max-width: 540px;">
+            <div class="row no-gutters ">
+                <div class="col-md-4">
+                    <i class="fa fa-pencil fa-3x circled bg-skin" style="background:transparent"></i>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Error base</h5>
+                        <p class="card-text">This is a wider card with supporting .. .</p>
+                        <a class="btn  " target="_blank" href="@Url.Action("ErrorRate")">Click</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-3    ">
+        <div class="card mb-3 orange" style="max-width: 540px;">
+            <div class="row no-gutters">
+
+                <div class="col-md-4">
+                    <i class="fa fa-group fa-3x circled bg-skin" style="background:transparent"></i>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title"> Student Base</h5>
+                        <p class="card-text">This is a wider card   ...</p>
+                        <a class="btn  " target="_blank" href="@Url.Action("Students")">Click</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12  col-md-3">
+        <div class="card mb-3   blue" style="max-width: 540px;">
+            <div class="row no-gutters">
+
+                <div class="col-md-4">
+                    <i class="fa fa-search fa-3x circled bg-skin" style="background:transparent"></i>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title"> Word Base</h5>
+                        <p class="card-text">This is a wider card with supporting ...</p>
+                        <a class="btn  " target="_blank" href="@Url.Action("Word")">Click</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12  col-md-3  ">
+        <div class="card mb-3 green" style="max-width: 540px;">
+            <div class="row no-gutters">
+
+                <div class="col-md-4">
+                    <i class="fa fa-random fa-3x circled bg-skin" style="background:transparent"></i>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Comparing </h5>
+                        <p class="card-text">This is a wider card with supporting ...</p>
+                        <a class="btn " target="_blank" href="@Url.Action("Comparing")">Click</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-sm-6  ">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Student Table
+                <a data-toggle="collapse" href="#multiCollapseExample8" role="button" aria-expanded="true" aria-controls="multiCollapseExample8">
+                    <span class="fa fa-angle-double-down " style="font-size: 20px;"></span>
+                </a>
+            </div>
+            <div class="panel-body">
+                <div class="row multi-collapse in" id="multiCollapseExample8" aria-expanded="true">
+
+                    <div class="card">
+                        <div class="card-body">
+                        </div>
+                        <table class="table" id="zero_config">
+                            <thead>
+                                <tr>
+                                    <th>StudentId</th>
+                                    <th>Age</th>
+                                    <th>Language</th>
+                                    <th>Error Count</th>
+                                    <th>Min Error Level</th>
+                                    <th>Max Error Level</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>88</td>
+                                    <td>9</td>
+                                    <td>Deutsch</td>
+                                    <td>75</td>
+                                    <td>errLevel3 </td>
+                                    <td>errLevel2 </td>
+                                </tr>
+                                <tr>
+                                    <td>75</td>
+                                    <td>8</td>
+                                    <td>Multi</td>
+                                    <td>35</td>
+                                    <td>errLevel1 </td>
+                                    <td>errLevel2 </td>
+                                </tr>
+                                <tr>
+                                    <td>69</td>
+                                    <td>8</td>
+                                    <td>Multi</td>
+                                    <td>32</td>
+                                    <td>errLevel4 </td>
+                                    <td>errLevel3 </td>
+                                </tr>
+                                <tr>
+                                    <td>62</td>
+                                    <td>11</td>
+                                    <td>Multi</td>
+                                    <td>75</td>
+                                    <td>errLevel1 </td>
+                                    <td>errLevel4 </td>
+                                </tr>
+                
+                                <tr>
+                                    <td>6</td>
+                                    <td>6</td>
+                                    <td>Deutsch</td>
+                                    <td>75</td>
+                                    <td>45%</td>
+                                    <td>errLevel1 </td>
+                                    <td>errLevel4 </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="modal fade" id="exampleModal11" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel11" aria-hidden="true">
+                            <div class="modal-dialog modal-xl" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">More Details</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-sm-12  ">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        Number of error
+                                                        <a data-toggle="collapse" href="#multiCollapseExample10" role="button" aria-expanded="true" aria-controls="multiCollapseExample10">
+                                                            <span class="fa fa-angle-double-down " style="font-size: 20px;"></span>
+                                                        </a>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="row multi-collapse in" id="multiCollapseExample10" aria-expanded="true">
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <canvas id="line-chart" width="400" height="400"></canvas>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <canvas id="errareachart" width="800" height="450"></canvas>
+
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 ">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        Chart of selected Students
+                                                        <a data-toggle="collapse" href="#multiCollapseExample11" role="button" aria-expanded="true" aria-controls="multiCollapseExample11">
+                                                            <span class="fa fa-angle-double-down " style="font-size: 20px;"></span>
+                                                        </a>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="row multi-collapse in" id="multiCollapseExample11" aria-expanded="true">
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <canvas id="myChart" width="200" height="200"></canvas>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <canvas id="myChart1" width="200" height="200"></canvas>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-success" data-dismiss="modal">submit</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">More Details</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Problem:
+                                        <textarea id="txtarea1"></textarea>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-success" data-dismiss="modal">submit</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">differrent form of error</h5>
+
+                                    </div>
+                                    <div class="modal-body">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Word</th>
+                                                    <th>Frequency</th>
+                                                    <th>Count</th>
+                                                    <th>who</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>schulöfnung</td>
+                                                    <td>20</td>
+                                                    <td>11</td>
+                                                    <td><a class="btn btn-info" target="_blank" href="@Url.Action("Students")">who</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>schuloffnung</td>
+                                                    <td>3</td>
+                                                    <td>10</td>
+                                                    <td><a class="btn btn-info" target="_blank" href="@Url.Action("Students")">who</a></td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-info" data-dismiss="modal">close</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Chart of Students bas On Errors
+                <a data-toggle="collapse" href="#multiCollapseExample11" role="button" aria-expanded="true" aria-controls="multiCollapseExample11">
+                    <span class="fa fa-angle-double-down " style="font-size: 20px;"></span>
+                </a>
+            </div>
+            <div class="panel-body">
+                <div class="row multi-collapse in" id="multiCollapseExample11" aria-expanded="true">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <canvas id="select-myChart" width="200" height="200"></canvas>
+                        </div>
+                        <div class="col-md-6">
+                            <canvas id="select-myChart1" width="200" height="200"></canvas>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-sm-12 col-md-12 ">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                most errors
+                <a data-toggle="collapse" href="#multiCollapseExample8" role="button" aria-expanded="true" aria-controls="multiCollapseExample8">
+                    <span class="fa fa-angle-double-down " style="font-size: 20px;"></span>
+                </a>
+            </div>
+            <div class="panel-body">
+                <div class="row multi-collapse in" id="multiCollapseExample8" aria-expanded="true">
+
+                    <div class="card">
+                        <div class="card-body">
+                        </div>
+                        <table class="table" id="zero_config">
+                            <thead>
+                                <tr>
+                                    <th>Ref. Word</th>
+                                    <th>Word</th>
+                                    <th>freq</th>
+                                    <th>Count</th>
+                                    <th>Error Count</th>
+                                    <th>Kof</th>
+                                    <th>Error Level</th>
+                                    <th>Pos</th>
+                                    <th>Lex/func</th>
+                                    <th>Word Info.</th>
+                                    <th>who</th>
+                                    <th>Forms</th>
+                                    <th>select</th>
+                                    <th>chart</th>
+                                    <th>report</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>schulöffnung</td>
+                                    <td>schuloffnung</td>
+                                    <td>88</td>
+                                    <td>55</td>
+                                    <td>23</td>
+                                    <td>Kof1  </td>
+                                    <td>errLevel2 </td>
+                                    <td>Adv </td>
+                                    <td>lex </td>
+                                    <td><a class="btn btn-info" target="_blank" href="@Url.Action("Word")">info.</a></td>
+                                    <td><a class="btn btn-info" target="_blank" href="@Url.Action("Students")">who</a></td>
+                                    <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal1">Forms</button></td>
+                                    <td><button type="button" class="btn btn-info">select</button></td>
+                                    <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal11">chart</button></td>
+                                    <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">report</button></td>
+                                </tr>
+                                <tr>
+                                    <td>akquirieren</td>
+                                    <td>acquirieren</td>
+                                    <td>75</td>
+                                    <td>54</td>
+                                    <td>20</td>
+                                    <td>Kof2 </td>
+                                    <td>errLevel1 </td>
+                                    <td>Adj </td>
+                                    <td>func </td>
+                                    <td><a class="btn btn-info" target="_blank" href="@Url.Action("Word")">Info.</a></td>
+                                    <td><a class="btn btn-info" target="_blank" href="@Url.Action("Students")">who</a></td>
+                                    <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal1">Forms</button></td>
+                                    <td><button type="button" class="btn btn-info">select</button></td>
+                                    <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal11">chart</button></td>
+                                    <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">report</button></td>
+                                </tr>
+                                <tr>
+                                    <td>abgeschlossen</td>
+                                    <td>abgeschlosen</td>
+                                    <td>69</td>
+                                    <td>46</td>
+                                    <td>19</td>
+                                    <td>Kof3</td>
+                                    <td>errLevel3 </td>
+                                    <td>Nom </td>
+                                    <td>func </td>
+                                    <td><a class="btn btn-info" target="_blank" href="@Url.Action("Word")">Info.</a></td>
+                                    <td><a class="btn btn-info" target="_blank" href="@Url.Action("Students")">who</a></td>
+                                    <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal1">Forms</button></td>
+                                    <td><button type="button" class="btn btn-info">select</button></td>
+                                    <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal11">chart</button></td>
+                                    <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">report</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Ärgernis</td>
+                                    <td>Ärgerniss</td>
+                                    <td>62</td>
+                                    <td>51</td>
+                                    <td>11</td>
+                                    <td>DoubleC  </td>
+                                    <td>errLevel4 </td>
+                                    <td>Adj </td>
+                                    <td>lex </td>
+                                    <td><a class="btn btn-info" target="_blank" href="@Url.Action("Word")">Info.</a></td>
+                                    <td><a class="btn btn-info" target="_blank" href="@Url.Action("Students")">who</a></td>
+                                    <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal1">Forms</button></td>
+                                    <td><button type="button" class="btn btn-info">select</button></td>
+                                    <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal11">chart</button></td>
+                                    <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">report</button></td>
+                                </tr>
+                                <tr>
+                                    <td>bisschen</td>
+                                    <td>bisshen</td>
+                                    <td>55</td>
+                                    <td>50</td>
+                                    <td>23</td>
+                                    <td>DoubleC  </td>
+                                    <td>errLevel1 </td>
+                                    <td>Adj </td>
+                                    <td>lex </td>
+                                    <td><a class="btn btn-info" target="_blank" href="@Url.Action("Word")">Info.</a></td>
+                                    <td><a class="btn btn-info" target="_blank" href="@Url.Action("Students")">who</a></td>
+                                    <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal1">Forms</button></td>
+                                    <td><button type="button" class="btn btn-info">select</button></td>
+                                    <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal11">chart</button></td>
+                                    <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">report</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Büfett</td>
+                                    <td>Büffett</td>
+                                    <td>48</td>
+                                    <td>41</td>
+                                    <td>23</td>
+                                    <td>DoubleC  </td>
+                                    <td>errLevel1 </td>
+                                    <td>Adj </td>
+                                    <td>func </td>
+                                    <td><a class="btn btn-info" target="_blank" href="@Url.Action("Word")">Info.</a></td>
+                                    <td><a class="btn btn-info" target="_blank" href="@Url.Action("Students")">who</a></td>
+                                    <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal1">Forms</button></td>
+                                    <td><button type="button" class="btn btn-info">select</button></td>
+                                    <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal11">chart</button></td>
+                                    <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">report</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    ...
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Modal -->
+
+                        <div class="modal fade" id="exampleModal11" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel11" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">More Details</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 ">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    Chart of Students By selected Error
+                                                    <a data-toggle="collapse" href="#multiCollapseExample10" role="button" aria-expanded="true" aria-controls="multiCollapseExample10">
+                                                        <span class="fa fa-angle-double-down " style="font-size: 20px;"></span>
+                                                    </a>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="row multi-collapse in" id="multiCollapseExample10" aria-expanded="true">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <canvas id="line-chart" width="400" height="400"></canvas>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <canvas id="errareachart" width="800" height="450"></canvas>
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12  ">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    Chart of Students by Selected Error
+                                                    <a data-toggle="collapse" href="#multiCollapseExample11" role="button" aria-expanded="true" aria-controls="multiCollapseExample11">
+                                                        <span class="fa fa-angle-double-down " style="font-size: 20px;"></span>
+                                                    </a>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="row multi-collapse in" id="multiCollapseExample11" aria-expanded="true">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <canvas id="myChart" width="200" height="200"></canvas>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <canvas id="myChart1" width="200" height="200"></canvas>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-success" data-dismiss="modal">submit</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">More Details</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Problem:
+                                        <textarea id="txtarea1"></textarea>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-success" data-dismiss="modal">submit</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">differrent form of error</h5>
+
+                                    </div>
+                                    <div class="modal-body">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Word</th>
+                                                    <th>Frequency</th>
+                                                    <th>Count</th>
+                                                    <th>who</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>schulöfnung</td>
+                                                    <td>20</td>
+                                                    <td>11</td>
+                                                    <td><a class="btn btn-info" target="_blank" href="@Url.Action("Students")">who</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>schuloffnung</td>
+                                                    <td>3</td>
+                                                    <td>10</td>
+                                                    <td><a class="btn btn-info" target="_blank" href="@Url.Action("Students")">who</a></td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-info" data-dismiss="modal">close</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Progress of Errors
+                <a data-toggle="collapse" href="#multiCollapseExample10" role="button" aria-expanded="true" aria-controls="multiCollapseExample10">
+                    <span class="fa fa-angle-double-down " style="font-size: 20px;"></span>
+                </a>
+            </div>
+            <div class="panel-body">
+                <div class="row multi-collapse in" id="multiCollapseExample10" aria-expanded="true">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <canvas id="select-line-chart" width="400" height="400"></canvas>
+                        </div>
+                        <div class="col-md-6">
+                            <canvas id="select-errareachart" width="800" height="450"></canvas>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+@section script{
+
+    <script src="../../assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
+    <script src="../../assets/extra-libs/multicheck/jquery.multicheck.js"></script>
+    <script src="~/assets/extra-libs/DataTables/datatables.min.js"></script>
+    <script>
+
+    </script>
+    <script src="~/scripts/chart.js"></script>
+    <script src="~/js/dashboard-local.js"></script>
+
+}

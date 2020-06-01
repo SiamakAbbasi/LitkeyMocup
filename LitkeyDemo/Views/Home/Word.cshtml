@@ -5,10 +5,12 @@
 }
 
 
- 
+
 
 <h2>Word</h2>
 <style>
+
+
     .slidecontainer {
         width: 100%;
     }
@@ -72,7 +74,7 @@
 <div class="row " style="margin-top:50px">
     <div class="panel panel-default">
         <div class="panel-heading">
-            Error rate Search
+            Word Search
             <a data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="true" aria-controls="multiCollapseExample1">
                 <span class="fa fa-angle-double-down " style="font-size: 20px;"></span>
             </a>
@@ -82,8 +84,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="form-group row">
-                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">the word that </label>
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <select class="custom-select">
                                 <option selected>equal</option>
                                 <option value="1">start with</option>
@@ -92,43 +93,36 @@
                             </select>
 
                         </div>
-                        <div class="col-sm-3">
-                            <input type="text" class="form-control" id="fname" placeholder="word">
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="myInput" placeholder="word">
 
                         </div>
                     </div>
 
                 </div>
-                <div class="col-md-3">
+                
+                <div class="col-md-2">
                     <div class="form-group row">
-                        <label for="lname" class="col-sm-3 text-right control-label col-form-label"> Frequency </label>
-
-                        <div class="col-sm-5">
-
-                            <div class="slidecontainer">
-                                <input type="range" min="1" max="100" value="1" class="slider" id="myRange"> 
-                                <p>Rate: <span id="demo"></span></p>
-
-                            </div>
-                            <div class="slidecontainer">
-                                <input type="range" min="1" max="100" value="100" class="slider" id="myRange1">
-                                <p>Rate: <span id="demo1"></span></p>
-
-                            </div>
+                        <label for="lname" class="col-sm-6 text-right control-label col-form-label">Morpheme types</label>
+                        <div class="col-sm-6">
+                            <select class="custom-select">
+                                <option selected>Choose</option>
+                                <option value="1">ADJ</option>
+                                <option value="2">ADP</option>
+                                <option value="2">ADV</option>
+                            </select>
                         </div>
-
                     </div>
                 </div>
-
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <div class="form-group row">
-                        <label for="fname" class="col-sm-3 text-right control-label col-form-label">Error Kof</label>
+                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Kof</label>
                         <div class="col-sm-9">
                             <select class="custom-select">
                                 <option selected>choos</option>
                                 <option selected>All</option>
-                                <option value="1">double_Syl</option>
-                                <option value="2">single_Syl</option>
+                                <option value="3">Kof 1</option>
+                                <option value="2">Kof 2</option>
                             </select>
                         </div>
                     </div>
@@ -150,9 +144,88 @@
                         </div>
                     </div>
                 </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group row">
+                        <label for="lname" class="col-sm-6 text-right control-label col-form-label"> Count of Word </label>
+
+                        <div class="col-sm-6">
+
+                            <div class="slidecontainer">
+                                <input type="range" min="1" max="100" value="1" class="slider" id="myRange">
+                                <p>Rate: <span id="demo"></span></p>
+
+                            </div>
+                            <div class="slidecontainer">
+                                <input type="range" min="1" max="100" value="100" class="slider" id="myRange1">
+                                <p>Rate: <span id="demo1"></span></p>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group row">
+                        <label for="lname" class="col-sm-6 text-right control-label col-form-label"> CBigramm-Freqs </label>
+
+                        <div class="col-sm-6">
+
+                            <div class="slidecontainer">
+                                <input type="range" min="1" max="100" value="1" class="slider" id="myRange">
+                                <p>Rate: <span id="demo"></span></p>
+
+                            </div>
+                            <div class="slidecontainer">
+                                <input type="range" min="1" max="100" value="100" class="slider" id="myRange1">
+                                <p>Rate: <span id="demo1"></span></p>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group row">
+                        <label for="lname" class="col-sm-3 text-right control-label col-form-label"> Frequency </label>
+
+                        <div class="col-sm-5">
+
+                            <div class="slidecontainer">
+                                <input type="range" min="1" max="100" value="1" class="slider" id="myRange">
+                                <p>Rate: <span id="demo"></span></p>
+
+                            </div>
+                            <div class="slidecontainer">
+                                <input type="range" min="1" max="100" value="100" class="slider" id="myRange1">
+                                <p>Rate: <span id="demo1"></span></p>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group row">
+                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Kof</label>
+                        <div class="col-sm-9">
+                            <select class="custom-select">
+                                <option selected>choos</option>
+                                <option selected>All</option>
+                                <option value="3">funktion</option>
+                                <option value="2">Lexion</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
                 
             </div>
-
             <hr />
 
 
@@ -173,7 +246,7 @@
         <div class="col-sm-8 ">
 
             <div class="col-sm-6">
-                <div class="alert alert-primary" role="alert">
+                <div class="copy-panel" role="alert">
                     http://litkey/X972834xkf
                 </div>
             </div>
@@ -197,7 +270,7 @@
 <div class="row search-section  " style="margin-top:50px">
 
     <div class="row">
-        <div class="col-sm-12 col-md-6">
+        <div class="col-sm-12  ">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     Word Structure Table
@@ -217,7 +290,13 @@
                                             <th>Lemma</th>
                                             <th>Frequency</th>
                                             <th>Normalized lema Frequency</th>
+
                                             <th>Kof</th>
+                                            <th>Syllables</th>
+                                            <th>Lemma length</th>
+                                            <th>Lemma frequency</th>
+                                            <th>Type frequency</th>
+                                            <th>#</th>
                                             <th>Who</th>
                                             <th>Errors</th>
                                             <th>Select</th>
@@ -225,15 +304,20 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Schule</td>
+                                            <td>abgeschlossen</td>
                                             <td>nn</td>
-                                            <td>Schule</td>
+                                            <td>schliess</td>
                                             <td>61</td>
                                             <td>50</td>
                                             <td>Kof1</td>
+                                            <td>2</td>
+                                            <td>11</td>
+                                            <td>61</td>
+                                            <td>128</td>
+                                            <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">more</button></td>
                                             <td><a class="btn btn-info" target="_blank" href="@Url.Action("Students")">Who</a></td>
-                                            <td><a class="btn btn-info" target="_blank" href="@Url.Action("ErrorRate")">Error analysis </a></td>
-                                            <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">select</button></td>
+                                            <td><a class="btn btn-info" target="_blank" href="@Url.Action("ErrorRate")">errors </a></td>
+                                            <td><button type="button" class="btn btn-info" id="show-infos">select</button></td>
                                         </tr>
 
                                     </tbody>
@@ -246,91 +330,47 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-12 col-md-6">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    Word Structure Table
-                    <a data-toggle="collapse" href="#multiCollapseExample8" role="button" aria-expanded="true" aria-controls="multiCollapseExample8">
-                        <span class="fa fa-angle-double-down " style="font-size: 20px;"></span>
-                    </a>
-                </div>
-                <div class="panel-body">
-                    <div class="row multi-collapse in" id="multiCollapseExample8" aria-expanded="true">
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">More Details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Word</th>
+                                    <th>Pos</th>
+                                    <th>Lemma</th>
+                                    <th>Frequency</th>
+                                    <th>Normalized lema Frequency</th>
+                                    <th>Kof</th>
+                                    <th>Who</th>
+                                    <th>Errors</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>abgeschlossen</td>
+                                    <td>nn</td>
+                                    <td>schliess</td>
+                                    <td>61</td>
+                                    <td>50</td>
+                                    <td>kof1 </td>
+                                    <td><a class="btn btn-info" target="_blank" href="@Url.Action("Students")">Who</a></td>
+                                    <td><a class="btn btn-info" target="_blank" href="@Url.Action("ErrorRate")">Errors </a></td>
 
-                        <div class="card">
-                            <div class="card-body">
-                            </div>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Syllables</th>
-                                        <th>Lemma length</th>
-                                        <th>Lemma frequency</th>
-                                        <th>Type frequency</th>
-                                        <th>#</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>11</td>
-                                        <td>61</td>
-                                        <td>128</td>
-                                        <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">more</button></td>
-                                    </tr>
+                                </tr>
 
-                                </tbody>
-                            </table>
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">More Details</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Word</th>
-                                                        <th>Pos</th>
-                                                        <th>Lemma</th>
-                                                        <th>Frequency</th>
-                                                        <th>Normalized lema Frequency</th>
-                                                        <th>Kof</th>
-                                                        <th>Who</th>
-                                                        <th>Errors</th>
-                                                        <th>Similarity</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Schule</td>
-                                                        <td>nn</td>
-                                                        <td>Schule</td>
-                                                        <td>61</td>
-                                                        <td>50</td>
-                                                        <td>kof1 </td>
-                                                        <td><a class="btn btn-info" target="_blank" href="@Url.Action("Students")">Who</a></td>
-                                                        <td><a class="btn btn-info" target="_blank" href="@Url.Action("ErrorRate")">Error analysis </a></td>
-                                                
-                                                    </tr>
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 
                     </div>
                 </div>
@@ -342,7 +382,7 @@
         <div class="col-sm-12  ">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Word Structure Table
+                    Similar to selected word
                     <a data-toggle="collapse" href="#multiCollapseExample8" role="button" aria-expanded="true" aria-controls="multiCollapseExample8">
                         <span class="fa fa-angle-double-down " style="font-size: 20px;"></span>
                     </a>
@@ -356,7 +396,7 @@
                             <table class="table" id="zero_config">
                                 <thead>
                                     <tr>
-                                        <th>hund</th>
+                                        <th>Word</th>
                                         <th>freq</th>
                                         <th>Count</th>
                                         <th>Error Count</th>
@@ -372,7 +412,7 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>hunt</td>
+                                        <td>abschliessen</td>
                                         <td>88</td>
                                         <td>55</td>
                                         <td>23</td>
@@ -382,11 +422,11 @@
                                         <td>lex </td>
                                         <td><a class="btn btn-info" target="_blank" href="@Url.Action("Students")">who</a></td>
                                         <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">Info</button></td>
-                                        <td><a class="btn btn-info" target="_blank" href="@Url.Action("ErrorRate")">Error analysis </a></td>
+                                        <td><a class="btn btn-info" target="_blank" href="@Url.Action("ErrorRate")">errors </a></td>
                                         <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">report</button></td>
                                     </tr>
                                     <tr>
-                                        <td>akquirieren</td>
+                                        <td>abschließend</td>
                                         <td>75</td>
                                         <td>54</td>
                                         <td>20</td>
@@ -396,11 +436,11 @@
                                         <td>func </td>
                                         <td><a class="btn btn-info" target="_blank" href="@Url.Action("Students")">who</a></td>
                                         <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">Info</button></td>
-                                        <td><a class="btn btn-info" target="_blank" href="@Url.Action("ErrorRate")">Error analysis </a></td>
+                                        <td><a class="btn btn-info" target="_blank" href="@Url.Action("ErrorRate")">errors </a></td>
                                         <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">report</button></td>
                                     </tr>
                                     <tr>
-                                        <td>abgeschlossen</td>
+                                        <td>schließlich</td>
                                         <td>69</td>
                                         <td>46</td>
                                         <td>19</td>
@@ -410,11 +450,11 @@
                                         <td>func </td>
                                         <td><a class="btn btn-info" target="_blank" href="@Url.Action("Students")">who</a></td>
                                         <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">Info</button></td>
-                                        <td><a class="btn btn-info" target="_blank" href="@Url.Action("ErrorRate")">Error analysis </a></td>
+                                        <td><a class="btn btn-info" target="_blank" href="@Url.Action("ErrorRate")">errors </a></td>
                                         <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">report</button></td>
                                     </tr>
                                     <tr>
-                                        <td>Ärgernis</td>
+                                        <td>schlüssel</td>
                                         <td>62</td>
                                         <td>51</td>
                                         <td>11</td>
@@ -424,11 +464,11 @@
                                         <td>lex </td>
                                         <td><a class="btn btn-info" target="_blank" href="@Url.Action("Students")">who</a></td>
                                         <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">Info</button></td>
-                                        <td><a class="btn btn-info" target="_blank" href="@Url.Action("ErrorRate")">Error analysis </a></td>
+                                        <td><a class="btn btn-info" target="_blank" href="@Url.Action("ErrorRate")">errors </a></td>
                                         <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">report</button></td>
                                     </tr>
                                     <tr>
-                                        <td>bisschen</td>
+                                        <td>entschlüssele</td>
                                         <td>55</td>
                                         <td>50</td>
                                         <td>23</td>
@@ -438,11 +478,11 @@
                                         <td>lex </td>
                                         <td><a class="btn btn-info" target="_blank" href="@Url.Action("Students")">who</a></td>
                                         <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">Info</button></td>
-                                        <td><a class="btn btn-info" target="_blank" href="@Url.Action("ErrorRate")">Error analysis </a></td>
+                                        <td><a class="btn btn-info" target="_blank" href="@Url.Action("ErrorRate")">errors </a></td>
                                         <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">report</button></td>
                                     </tr>
                                     <tr>
-                                        <td>Büfett</td>
+                                        <td>Aufschlüsselungen</td>
                                         <td>48</td>
                                         <td>41</td>
                                         <td>23</td>
@@ -452,7 +492,7 @@
                                         <td>func </td>
                                         <td><a class="btn btn-info" target="_blank" href="@Url.Action("Students")">who</a></td>
                                         <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">Info</button></td>
-                                        <td><a class="btn btn-info" target="_blank" href="@Url.Action("ErrorRate")">Error analysis </a></td>
+                                        <td><a class="btn btn-info" target="_blank" href="@Url.Action("ErrorRate")">errors </a></td>
                                         <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">report</button></td>
                                     </tr>
                                 </tbody>
@@ -527,7 +567,7 @@
             </div>
         </div>
     </div>
-  
+
     <div class="row">
         <div class="col-sm-12 col-md-6">
             <div class="panel panel-default">
@@ -603,6 +643,9 @@
 
     </script>
     <script src="~/scripts/chart.js"></script>
-    <script src="~/js/err-rate-local.js"></script>
-
+    <script src="~/js/word-local.js"></script>
+    <script src="~/js/autocomplete.js"></script>
+    <script>
+        autocomplete(document.getElementById("myInput"), countries);
+    </script>
 }

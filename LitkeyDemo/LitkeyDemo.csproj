@@ -1212,8 +1212,13 @@
     <Content Include="img\testimonials\4.jpg" />
     <Content Include="img\testimonials\5.jpg" />
     <Content Include="img\testimonials\6.jpg" />
+    <Content Include="js\autocomplete.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\custom.js" />
+    <Content Include="js\comparing-local.js" />
+    <Content Include="js\dashboard-local.js" />
+    <Content Include="js\word-local.js" />
+    <Content Include="js\student-local.js" />
     <Content Include="js\jquery-1.10.2.js" />
     <Content Include="js\jquery.appear.js" />
     <Content Include="js\jquery.easing.min.js" />
@@ -1397,6 +1402,7 @@
     <Content Include="Views\Home\ErrorRate.cshtml" />
     <Content Include="Views\Home\Students.cshtml" />
     <Content Include="Views\Home\Word.cshtml" />
+    <Content Include="Views\Home\Comparing.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
