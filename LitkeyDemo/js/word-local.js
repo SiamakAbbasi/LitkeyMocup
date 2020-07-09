@@ -7,9 +7,9 @@ $('#zero_config').DataTable();
    *       Basic Table                   *
    ****************************************/
 var $body = $("body");
-$('#show-infos').on('click', function myfunction() {
-
-    var ctx1 = document.getElementById('myChart1');
+$(document).ready(function myfunction() {
+    debugger
+    var ctx1 = document.getElementById('word-chart');
     var myChart1 = new Chart(ctx1, {
         type: 'bar',
         data: {
@@ -35,7 +35,7 @@ $('#show-infos').on('click', function myfunction() {
             }
         }
     });
-    var ctx = document.getElementById('myChart');
+    var ctx = document.getElementById('word-chart1');
     var myChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
@@ -65,7 +65,7 @@ $('#show-infos').on('click', function myfunction() {
  
 
 
-    new Chart(document.getElementById("line-chart"), {
+    new Chart(document.getElementById("word-line-chart"), {
         type: 'line',
         data: {
             labels: MONTHS,
@@ -89,7 +89,7 @@ $('#show-infos').on('click', function myfunction() {
             }
         }
     });
-    new Chart(document.getElementById("errareachart"), {
+    new Chart(document.getElementById("word-errareachart"), {
         type: 'horizontalBar',
         data: {
             labels: MONTHS,
